@@ -306,9 +306,53 @@
             <div class="card-header"><div class="card-icon">🎯</div><h3 class="card-title">Problem</h3></div>
             <div class="card-content">Metric definitions were duplicated across Power BI reports, dashboards, and AI tools — every team calculated revenue, conversion rates, and KPIs differently. A single semantic layer eliminates this drift and makes metrics queryable via SQL, REST API, and natural language.</div>
         </div>
-        <!-- Semantic Layer diagram - image -->
-        <div style="flex:1; display:flex; align-items:center; justify-content:center;">
-            <img src="semantic-layer.png" alt="Semantic Layer Architecture" style="max-width:100%; max-height:50vh; object-fit:contain; border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <!-- Semantic Layer diagram -->
+        <div style="flex:1; display:flex; align-items:stretch; gap:8px; overflow-x:auto;">
+            <!-- Dev Team -->
+            <div style="background:rgba(119,30,84,0.04); border:1px solid rgba(119,30,84,0.15); border-radius:6px; padding:16px; display:flex; flex-direction:column; gap:8px; min-width:130px;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:4px;">Dev · Data Team</div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center;">dbt YAMLs</div>
+                <div style="font-size:0.72rem; color:var(--text-muted); text-align:center;">metrics · dimensions<br>entities</div>
+            </div>
+            <div style="display:flex; flex-direction:column; justify-content:center; padding:0 6px; color:var(--border-strong);">
+                <div style="font-size:0.65rem; color:var(--text-muted); text-align:center; margin-bottom:4px;">push to main</div>
+                <div style="font-size:1.1rem;">→</div>
+            </div>
+            <!-- CI/CD -->
+            <div style="background:rgba(119,30,84,0.04); border:1px solid rgba(119,30,84,0.15); border-radius:6px; padding:16px; display:flex; flex-direction:column; gap:8px; min-width:140px;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:4px;">CI/CD</div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center;">dbt compile<br>semantic_manifest.json</div>
+                <div style="color:var(--border-strong); text-align:center; font-size:0.9rem;">↓</div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center;">POST /admin/refresh</div>
+            </div>
+            <div style="display:flex; align-items:center; padding:0 6px; color:var(--border-strong);">→</div>
+            <!-- MetricFlow Server -->
+            <div style="background:rgba(119,30,84,0.04); border:1px solid rgba(119,30,84,0.15); border-radius:6px; padding:16px; display:flex; flex-direction:column; gap:8px; flex:1;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:4px;">MetricFlow Server</div>
+                <div style="display:flex; gap:8px; align-items:center;">
+                    <div style="background:#fff; border:1px solid rgba(119,30,84,0.3); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center; flex:1;">Manifest</div>
+                    <div style="color:var(--border-strong);">→</div>
+                    <div style="background:#fff; border:1px solid rgba(119,30,84,0.3); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center; flex:2;">MetricFlow Engine<br><span style="font-weight:400; color:var(--text-muted); font-size:0.72rem;">resolves joins · generates SQL</span></div>
+                    <div style="color:var(--border-strong);">↔</div>
+                    <div style="background:#fff; border:1px solid rgba(119,30,84,0.3); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center; flex:1;">REST API</div>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:4px;">
+                    <div style="background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.3); border-radius:4px; padding:8px 12px; font-size:0.72rem; color:#a06800; flex:1; text-align:center;"><strong>Redshift</strong><br>Staging & Mart Tables</div>
+                </div>
+            </div>
+            <div style="display:flex; align-items:center; padding:0 6px; color:var(--border-strong);">→</div>
+            <!-- BI Layer + Slack -->
+            <div style="display:flex; flex-direction:column; gap:8px; min-width:150px;">
+                <div style="background:rgba(52,168,83,0.05); border:1px solid rgba(52,168,83,0.2); border-radius:6px; padding:14px; flex:1;">
+                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#2e7d32; margin-bottom:6px;">BI Layer</div>
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:8px; font-size:0.75rem; font-weight:600; margin-bottom:6px; text-align:center;">metricflow-dialect<br><span style="font-weight:400; color:var(--text-muted);">SQL → REST</span></div>
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:8px; font-size:0.75rem; font-weight:600; text-align:center;">Dashboards & Charts</div>
+                </div>
+                <div style="background:rgba(74,144,217,0.05); border:1px solid rgba(74,144,217,0.2); border-radius:6px; padding:14px;">
+                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#1a5e99; margin-bottom:6px;">Slack</div>
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:8px; font-size:0.75rem; font-weight:600; text-align:center;">Metrics Bot<br><span style="font-weight:400; color:var(--text-muted);">natural language → REST</span></div>
+                </div>
+            </div>
         </div>
         <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">04 / 11</span></div>
     </div>
