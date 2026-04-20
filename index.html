@@ -22,14 +22,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
-
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-primary); overflow-x: hidden; }
         .presentation { width: 100%; max-width: 1200px; margin: 0 auto; }
 
         .slide {
@@ -41,488 +34,153 @@
             border-bottom: 1px solid var(--border);
             background: var(--bg);
         }
-
         .slide.alt { background: var(--bg-light); }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--red); }
 
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 4px;
-            background: var(--red);
-        }
-
-        /* ── Title ── */
-        .title-slide {
-            justify-content: center;
-            align-items: flex-start;
-            background: #1A1A1A;
-        }
-
+        /* Title */
+        .title-slide { justify-content: center; align-items: flex-start; background: #1A1A1A; }
         .title-slide::before { height: 6px; }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 18px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 2px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 40px;
-        }
-
-        .badge span {
-            width: 8px; height: 8px;
-            background: var(--red);
-            border-radius: 50%;
-        }
-
-        .main-title {
-            font-size: 5rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 10px;
-            color: #fff;
-            letter-spacing: -2px;
-        }
-
+        .badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border: 1px solid rgba(255,255,255,0.2); border-radius: 2px; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+        .badge span { width: 8px; height: 8px; background: var(--red); border-radius: 50%; }
+        .main-title { font-size: 5rem; font-weight: 800; line-height: 1; margin-bottom: 10px; color: #fff; letter-spacing: -2px; }
         .main-title em { color: var(--red); font-style: normal; }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.5);
-            font-weight: 300;
-            margin-bottom: 60px;
-            letter-spacing: 0.5px;
-        }
-
-        .meta-info {
-            display: flex;
-            gap: 40px;
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.4);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 32px;
-        }
-
+        .subtitle { font-size: 1.25rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 60px; }
+        .meta-info { display: flex; gap: 32px; flex-wrap: wrap; font-size: 0.88rem; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
         .meta-item { display: flex; align-items: center; gap: 8px; }
         .meta-item strong { color: rgba(255,255,255,0.75); font-weight: 500; }
 
-        /* ── Section header ── */
-        .section-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 24px;
-            margin-bottom: 52px;
-        }
+        /* Section header */
+        .section-header { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 48px; }
+        .section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; color: var(--red); letter-spacing: 2px; padding: 6px 0; border-top: 2px solid var(--red); width: 36px; flex-shrink: 0; margin-top: 8px; }
+        .section-title { font-size: 2.6rem; font-weight: 700; color: var(--text-primary); line-height: 1.1; letter-spacing: -0.5px; }
+        .section-subtitle { font-size: 0.95rem; color: var(--text-muted); margin-top: 6px; }
 
-        .section-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--red);
-            letter-spacing: 2px;
-            padding: 6px 0;
-            border-top: 2px solid var(--red);
-            width: 36px;
-            flex-shrink: 0;
-            margin-top: 8px;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.1;
-            letter-spacing: -0.5px;
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-top: 6px;
-        }
-
-        /* ── Grid ── */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            flex: 1;
-        }
-
+        /* Grid */
+        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; flex: 1; }
         .content-grid.full { grid-template-columns: 1fr; }
         .content-grid.three { grid-template-columns: repeat(3, 1fr); }
 
-        /* ── Cards ── */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 32px;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            border-color: var(--red);
-            box-shadow: 0 4px 20px rgba(119, 30, 84,0.08);
-        }
-
-        .card.accent {
-            border-left: 3px solid var(--red);
-            background: var(--red-light);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .card-icon {
-            width: 36px; height: 36px;
-            border-radius: 4px;
-            background: var(--red-light);
-            color: var(--red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        .card-title { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); }
-
-        .card-content { color: var(--text-secondary); line-height: 1.75; font-size: 0.93rem; }
+        /* Cards */
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 28px; transition: border-color 0.2s, box-shadow 0.2s; }
+        .card:hover { border-color: var(--red); box-shadow: 0 4px 20px rgba(119,30,84,0.08); }
+        .card.accent { border-left: 3px solid var(--red); background: var(--red-light); }
+        .card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+        .card-icon { width: 34px; height: 34px; border-radius: 4px; background: var(--red-light); color: var(--red); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; font-weight: 600; }
+        .card-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+        .card-content { color: var(--text-secondary); line-height: 1.7; font-size: 0.9rem; }
         .card-content ul { list-style: none; padding: 0; }
-        .card-content li { padding: 5px 0 5px 20px; position: relative; }
-        .card-content li::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 13px;
-            width: 6px; height: 2px;
-            background: var(--red);
-        }
+        .card-content li { padding: 4px 0 4px 18px; position: relative; }
+        .card-content li::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 2px; background: var(--red); }
 
-        /* ── Timeline (experience) ── */
+        /* Timeline */
         .timeline { display: flex; flex-direction: column; gap: 0; flex: 1; }
-
-        .tl-item {
-            display: flex;
-            gap: 28px;
-            align-items: stretch;
-        }
-
-        .tl-connector {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-            padding-top: 4px;
-        }
-
-        .tl-dot {
-            width: 12px; height: 12px;
-            border-radius: 50%;
-            background: var(--red);
-            flex-shrink: 0;
-        }
-
-        .tl-line {
-            width: 2px;
-            flex: 1;
-            background: var(--border);
-            min-height: 20px;
-        }
-
-        .tl-content {
-            flex: 1;
-            padding: 0 0 36px 0;
-        }
-
+        .tl-item { display: flex; gap: 28px; align-items: stretch; }
+        .tl-connector { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; padding-top: 4px; }
+        .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+        .tl-line { width: 2px; flex: 1; background: var(--border); min-height: 20px; }
+        .tl-content { flex: 1; padding: 0 0 32px 0; }
         .tl-item:last-child .tl-content { padding-bottom: 0; }
-
-        .tl-period {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 4px;
-        }
-
-        .tl-company {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 2px;
-        }
-
-        .tl-role {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .tl-desc {
-            font-size: 0.91rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
+        .tl-period { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+        .tl-company { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+        .tl-role { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px; font-weight: 500; }
+        .tl-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
         .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .tag { display: inline-block; padding: 3px 10px; background: var(--bg-light); border: 1px solid var(--border); border-radius: 2px; font-size: 0.78rem; color: var(--text-secondary); font-weight: 500; }
 
-        .tag {
-            display: inline-block;
-            padding: 3px 10px;
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
+        /* Flow diagram */
+        .flow-diagram { display: flex; align-items: center; gap: 0; flex: 1; overflow-x: auto; padding: 20px 0; }
+        .flow-group { display: flex; flex-direction: column; gap: 10px; min-width: 140px; }
+        .flow-group-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; text-align: center; }
+        .flow-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 12px 14px; font-size: 0.82rem; color: var(--text-primary); font-weight: 500; text-align: center; line-height: 1.4; }
+        .flow-box.highlight { border-color: var(--red); border-top: 3px solid var(--red); color: var(--red-dark); }
+        .flow-box.muted { background: var(--bg-light); color: var(--text-secondary); font-size: 0.78rem; }
+        .flow-arrow { display: flex; align-items: center; padding: 0 8px; color: var(--border-strong); font-size: 1.1rem; flex-shrink: 0; align-self: center; }
+        .flow-arrow.down { padding: 4px 0; justify-content: center; color: var(--border-strong); transform: rotate(90deg); }
 
-        /* ── Architecture diagram ── */
-        .arch-wrapper {
-            flex: 1;
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
+        /* Semantic layer diagram */
+        .sem-diagram { display: flex; align-items: stretch; gap: 0; flex: 1; min-height: 320px; }
+        .sem-group { background: rgba(119,30,84,0.04); border: 1px solid rgba(119,30,84,0.15); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 130px; }
+        .sem-group-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+        .sem-box { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; font-size: 0.8rem; color: var(--text-primary); font-weight: 500; text-align: center; line-height: 1.4; }
+        .sem-connector { display: flex; align-items: center; padding: 0 12px; flex-shrink: 0; color: var(--border-strong); font-size: 1rem; }
+        .sem-label { font-size: 0.68rem; color: var(--text-muted); text-align: center; margin-top: 2px; }
 
-        .arch-row {
-            display: flex;
-            gap: 16px;
-            align-items: stretch;
-        }
+        /* QA Flow */
+        .qa-flow { display: flex; flex-direction: column; gap: 16px; flex: 1; }
+        .qa-row { display: flex; align-items: center; gap: 12px; }
+        .qa-box { flex: 1; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 14px 16px; }
+        .qa-box.source { border-top: 3px solid #4A90D9; }
+        .qa-box.process { border-top: 3px solid var(--red); }
+        .qa-box.output { border-top: 3px solid #34a853; }
+        .qa-box-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+        .qa-box-title { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
+        .qa-box-desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px; line-height: 1.4; }
+        .qa-arrow { color: var(--border-strong); font-size: 1rem; flex-shrink: 0; }
 
-        .arch-block {
-            flex: 1;
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 20px;
-        }
+        /* Tests table */
+        .tests-table { width: 100%; border-collapse: collapse; flex: 1; font-size: 0.82rem; }
+        .tests-table th { text-align: left; padding: 10px 14px; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); border-bottom: 2px solid var(--border-strong); background: var(--bg-light); }
+        .tests-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+        .tests-table tr:hover td { background: var(--red-light); }
+        .tests-table td:first-child { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--red-dark); font-weight: 500; width: 200px; }
+        .test-type { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 0.72rem; font-weight: 600; }
+        .test-type.llm { background: rgba(119,30,84,0.1); color: var(--red-dark); }
+        .test-type.prog { background: rgba(52,168,83,0.1); color: #1e7e34; }
+        .test-type.hybrid { background: rgba(74,144,217,0.1); color: #1a5e99; }
 
-        .arch-block.highlight {
-            border-top: 3px solid var(--red);
-        }
-
-        .arch-label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 6px;
-        }
-
-        .arch-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-
-        .arch-desc {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .arch-arrow {
-            display: flex;
-            align-items: center;
-            color: var(--border-strong);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        /* ── Skills table ── */
-        .skills-table {
-            width: 100%;
-            border-collapse: collapse;
-            flex: 1;
-        }
-
-        .skills-table th {
-            text-align: left;
-            padding: 14px 20px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            border-bottom: 2px solid var(--border-strong);
-            background: var(--bg-light);
-        }
-
-        .skills-table td {
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: middle;
-        }
-
+        /* Skills */
+        .skills-table { width: 100%; border-collapse: collapse; flex: 1; }
+        .skills-table th { text-align: left; padding: 12px 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); border-bottom: 2px solid var(--border-strong); background: var(--bg-light); }
+        .skills-table td { padding: 14px 20px; border-bottom: 1px solid var(--border); vertical-align: middle; }
         .skills-table tr:hover td { background: var(--red-light); }
+        .skills-table td:first-child { font-weight: 600; color: var(--text-primary); font-size: 0.88rem; width: 190px; white-space: nowrap; }
+        .skill-tag { display: inline-block; padding: 3px 10px; background: var(--bg-light); border: 1px solid var(--border); border-radius: 2px; font-size: 0.8rem; color: var(--text-secondary); margin: 2px; font-weight: 500; }
 
-        .skills-table td:first-child {
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            width: 200px;
-            white-space: nowrap;
-        }
+        /* Impact */
+        .impact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; flex: 1; }
+        .impact-item { background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--red); border-radius: 4px; padding: 24px; }
+        .impact-title { font-weight: 600; color: var(--text-primary); margin-bottom: 8px; font-size: 0.95rem; }
+        .impact-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
 
-        .skill-tag {
-            display: inline-block;
-            padding: 4px 12px;
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            margin: 3px;
-            font-weight: 500;
-            transition: all 0.15s;
-        }
+        /* Why grid */
+        .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; flex: 1; }
+        .why-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 32px; }
+        .why-number { font-family: 'JetBrains Mono', monospace; font-size: 2rem; font-weight: 700; color: var(--red); opacity: 0.2; margin-bottom: 16px; }
+        .why-title { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 10px; }
+        .why-desc { color: var(--text-secondary); line-height: 1.7; font-size: 0.9rem; }
 
-        .skill-tag:hover {
-            background: var(--red-light);
-            border-color: var(--red);
-            color: var(--red-dark);
-        }
-
-        /* ── Impact grid ── */
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            flex: 1;
-        }
-
-        .impact-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-top: 3px solid var(--red);
-            border-radius: 4px;
-            padding: 28px;
-        }
-
-        .impact-title { font-weight: 600; color: var(--text-primary); margin-bottom: 10px; font-size: 1rem; }
-        .impact-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
-
-        /* ── Thanks ── */
-        .thanks-slide {
-            justify-content: center;
-            align-items: flex-start;
-            background: var(--red);
-        }
-
+        /* Thanks */
+        .thanks-slide { justify-content: center; align-items: flex-start; background: var(--red); }
         .thanks-slide::before { background: var(--red-dark); height: 6px; }
-
-        .thanks-title {
-            font-size: 5rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: -2px;
-            margin-bottom: 12px;
-        }
-
-        .thanks-sub {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.65);
-            font-weight: 300;
-            margin-bottom: 60px;
-        }
-
-        .thanks-meta {
-            display: flex;
-            gap: 40px;
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.55);
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 32px;
-        }
-
+        .thanks-title { font-size: 5rem; font-weight: 800; color: #fff; letter-spacing: -2px; margin-bottom: 12px; }
+        .thanks-sub { font-size: 1.1rem; color: rgba(255,255,255,0.65); font-weight: 300; margin-bottom: 60px; }
+        .thanks-meta { display: flex; gap: 32px; flex-wrap: wrap; font-size: 0.88rem; color: rgba(255,255,255,0.55); border-top: 1px solid rgba(255,255,255,0.2); padding-top: 32px; }
         .thanks-meta strong { color: #fff; font-weight: 500; }
 
-        /* ── Nav ── */
-        .nav-dots {
-            position: fixed;
-            right: 28px; top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 100;
-        }
+        /* Nav */
+        .nav-dots { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+        .nav-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border-strong); cursor: pointer; transition: all 0.2s; }
+        .nav-dot:hover, .nav-dot.active { background: var(--red); transform: scale(1.4); }
 
-        .nav-dot {
-            width: 8px; height: 8px;
-            border-radius: 50%;
-            background: var(--border-strong);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .nav-dot:hover, .nav-dot.active {
-            background: var(--red);
-            transform: scale(1.3);
-        }
-
-        /* ── Footer ── */
-        .slide-footer {
-            margin-top: auto;
-            padding-top: 36px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-        }
-
-        .page-number {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--red);
-            font-weight: 500;
-        }
+        /* Footer */
+        .slide-footer { margin-top: auto; padding-top: 32px; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-muted); border-top: 1px solid var(--border); }
+        .page-number { font-family: 'JetBrains Mono', monospace; color: var(--red); font-weight: 500; }
 
         @media (max-width: 768px) {
             .slide { padding: 40px 24px; }
             .main-title, .thanks-title { font-size: 2.8rem; }
             .section-title { font-size: 2rem; }
-            .content-grid, .impact-grid { grid-template-columns: 1fr; }
+            .content-grid, .impact-grid, .why-grid { grid-template-columns: 1fr; }
             .meta-info, .thanks-meta { flex-direction: column; gap: 12px; }
-        }
-
-        @media print {
-            .slide { page-break-after: always; min-height: auto; height: 100vh; }
-            .nav-dots { display: none; }
+            .flow-diagram, .sem-diagram { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-
 <div class="nav-dots" id="navDots"></div>
-
 <div class="presentation">
 
-    <!-- Slide 1: Title -->
+    <!-- 0: Title -->
     <div class="slide title-slide" id="slide-0">
         <div class="badge"><span></span>Senior Data Engineer</div>
         <h1 class="main-title">MIGUEL<br><em>PALOS POU</em></h1>
@@ -532,11 +190,10 @@
             <div class="meta-item">📍 <strong>Barcelona, Spain</strong></div>
             <div class="meta-item">🔗 <strong>linkedin.com/in/miguelpalospou</strong></div>
             <div class="meta-item">📅 <strong>21 / 04 / 2026</strong></div>
-            <div class="meta-item">🔗 <strong>linkedin.com/in/miguelpalospou</strong></div>
         </div>
     </div>
 
-    <!-- Slide 2: Contents -->
+    <!-- 1: Contents -->
     <div class="slide alt" id="slide-1">
         <div class="section-header">
             <div class="section-number">00</div>
@@ -547,41 +204,26 @@
         </div>
         <div class="content-grid">
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">01</div>
-                    <h3 class="card-title">Profile & Experience</h3>
-                </div>
+                <div class="card-header"><div class="card-icon">01</div><h3 class="card-title">Profile & Experience</h3></div>
                 <div class="card-content">Career path from analytics engineering to senior data engineering across top-tier companies.</div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">02</div>
-                    <h3 class="card-title">Projects</h3>
-                </div>
-                <div class="card-content">End-to-end data platforms built in production — architecture, decisions, and measurable impact.</div>
+                <div class="card-header"><div class="card-icon">02</div><h3 class="card-title">Projects</h3></div>
+                <div class="card-content">Murphy Data Platform (pipeline + semantic layer) and AI-powered QA Evaluation System.</div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">03</div>
-                    <h3 class="card-title">Skills & Stack</h3>
-                </div>
-                <div class="card-content">Full data engineering stack — from pipelines and warehouses to semantic layers and observability.</div>
+                <div class="card-header"><div class="card-icon">03</div><h3 class="card-title">Skills & Stack</h3></div>
+                <div class="card-content">Full data engineering stack — pipelines, warehouses, semantic layers, streaming, and infra.</div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">04</div>
-                    <h3 class="card-title">Why This Role</h3>
-                </div>
+                <div class="card-header"><div class="card-icon">04</div><h3 class="card-title">Why This Role</h3></div>
                 <div class="card-content">Technical alignment, cultural fit, and what I bring to the next challenge.</div>
             </div>
         </div>
-        <div class="slide-footer">
-            <span>Miguel Palos Pou — Senior Data Engineer</span>
-            <span class="page-number">01 / 07</span>
-        </div>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">01 / 11</span></div>
     </div>
 
-    <!-- Slide 3: Experience -->
+    <!-- 2: Experience -->
     <div class="slide" id="slide-2">
         <div class="section-header">
             <div class="section-number">01</div>
@@ -597,16 +239,9 @@
                     <div class="tl-period">Current</div>
                     <div class="tl-company">Murphy</div>
                     <div class="tl-role">Senior Data Engineer</div>
-                    <div class="tl-desc">Designed and owns the full analytics data platform — ingestion, transformation, and delivery of data across the company. Built the ELT pipeline on AWS (S3 + Redshift) using dbt and Airflow, enabling multi-tenant analytics with row-level security for 40+ clients.</div>
+                    <div class="tl-desc">Owns the full analytics data platform — ingestion from production DBs through a Delta Lake, into a Redshift warehouse, and delivery to Power BI and AI tools. Built multi-tenant analytics with row-level security for 40+ clients. Introduced semantic layer via MetricFlow server and an LLM-based QA evaluation system.</div>
                     <div class="tl-tags">
-                        <span class="tag">dbt</span>
-                        <span class="tag">Airflow</span>
-                        <span class="tag">Redshift</span>
-                        <span class="tag">AWS S3</span>
-                        <span class="tag">Kafka</span>
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Kubernetes</span>
-                        <span class="tag">MetricFlow</span>
+                        <span class="tag">dbt</span><span class="tag">Airflow</span><span class="tag">Redshift</span><span class="tag">AWS S3</span><span class="tag">Kafka</span><span class="tag">Power BI</span><span class="tag">Kubernetes</span><span class="tag">MetricFlow</span>
                     </div>
                 </div>
             </div>
@@ -616,13 +251,9 @@
                     <div class="tl-period">Previous</div>
                     <div class="tl-company">BBVA</div>
                     <div class="tl-role">Software / Data Engineer</div>
-                    <div class="tl-desc">Worked on data and software engineering within one of Europe's largest financial institutions. Built data pipelines and backend systems handling high-volume financial transactions and reporting.</div>
+                    <div class="tl-desc">Built data pipelines and backend systems handling high-volume financial transactions and reporting within one of Europe's largest financial institutions.</div>
                     <div class="tl-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Data Pipelines</span>
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Backend Engineering</span>
+                        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Data Pipelines</span><span class="tag">Power BI</span><span class="tag">Backend Engineering</span>
                     </div>
                 </div>
             </div>
@@ -632,195 +263,355 @@
                     <div class="tl-period">Earlier</div>
                     <div class="tl-company">SDG Group</div>
                     <div class="tl-role">Analytics Engineer</div>
-                    <div class="tl-desc">Delivered analytics engineering projects for clients across multiple industries. Modelled data with dbt, built BI layers, and translated business requirements into robust data models.</div>
+                    <div class="tl-desc">Delivered analytics engineering for clients across multiple industries. Modelled data with dbt, built BI layers, translated business requirements into robust data models.</div>
                     <div class="tl-tags">
-                        <span class="tag">dbt</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Analytics</span>
-                        <span class="tag">BI</span>
-                        <span class="tag">Data Modelling</span>
+                        <span class="tag">dbt</span><span class="tag">SQL</span><span class="tag">Analytics</span><span class="tag">Data Modelling</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="slide-footer">
-            <span>Miguel Palos Pou — Senior Data Engineer</span>
-            <span class="page-number">02 / 07</span>
-        </div>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">02 / 11</span></div>
     </div>
 
-    <!-- Slide 4: Project — Murphy Data Platform -->
+    <!-- 3: Project 1 — Data Platform Architecture -->
     <div class="slide alt" id="slide-3">
         <div class="section-header">
             <div class="section-number">02</div>
             <div>
-                <h2 class="section-title">Murphy Data Platform</h2>
-                <p class="section-subtitle">End-to-end analytics infrastructure for a multi-tenant SaaS</p>
+                <h2 class="section-title">Project 1 — Murphy Data Platform</h2>
+                <p class="section-subtitle">End-to-end analytics infrastructure for a multi-tenant SaaS · Murphy</p>
             </div>
         </div>
-        <div class="content-grid full" style="margin-bottom:20px;">
-            <div class="card accent">
-                <div class="card-header">
-                    <div class="card-icon">🎯</div>
-                    <h3 class="card-title">Challenge</h3>
+        <div class="card accent" style="margin-bottom:20px;">
+            <div class="card-header"><div class="card-icon">🎯</div><h3 class="card-title">Challenge</h3></div>
+            <div class="card-content">Murphy serves 40+ debt collection companies, each requiring isolated analytics with strict compliance and different schemas. A single pipeline must handle all clients, enforce row-level security, and deliver daily analytics to both internal dashboards and client-facing Power BI workspaces.</div>
+        </div>
+        <!-- Architecture diagram -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+                <!-- PROD DB -->
+                <div style="background:#fff; border:1px solid var(--border); border-top:3px solid #4A90D9; border-radius:4px; padding:14px 16px; min-width:140px;">
+                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#4A90D9; margin-bottom:6px;">Source</div>
+                    <div style="font-size:0.85rem; font-weight:600; margin-bottom:4px;">Prod Database</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted);">RDS Replica + DMS<br>→ Amazon S3</div>
                 </div>
-                <div class="card-content">
-                    Murphy serves 40+ debt collection companies, each requiring isolated analytics with different data schemas, SLAs, and compliance requirements. The platform needed a single pipeline that handles all clients while enforcing strict row-level security and delivering daily analytics to both internal dashboards and client-facing Power BI workspaces.
+                <div style="color:var(--border-strong); font-size:1.2rem; flex-shrink:0;">→</div>
+                <!-- Delta Lake -->
+                <div style="background:#fff; border:1px solid var(--border); border-top:3px solid #f5a623; border-radius:4px; padding:14px 16px; min-width:140px;">
+                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#f5a623; margin-bottom:6px;">Lake</div>
+                    <div style="font-size:0.85rem; font-weight:600; margin-bottom:4px;">Delta Lake</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted);">Bronze → Silver<br>dbt + Airflow</div>
+                </div>
+                <div style="color:var(--border-strong); font-size:1.2rem; flex-shrink:0;">→</div>
+                <!-- Warehouse -->
+                <div style="background:#fff; border:1px solid var(--border); border-top:3px solid var(--red); border-radius:4px; padding:14px 16px; flex:1;">
+                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:6px;">Warehouse · Redshift</div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <div style="font-size:0.78rem; text-align:center; padding:8px; background:var(--bg-light); border-radius:3px; flex:1;"><div style="color:var(--text-muted); font-size:0.68rem; margin-bottom:3px;">Raw</div>Copy of Athena tables</div>
+                        <div style="color:var(--border-strong);">→</div>
+                        <div style="font-size:0.78rem; text-align:center; padding:8px; background:var(--bg-light); border-radius:3px; flex:1;"><div style="color:var(--text-muted); font-size:0.68rem; margin-bottom:3px;">Staging</div>Renamed & standardized</div>
+                        <div style="color:var(--border-strong);">→</div>
+                        <div style="font-size:0.78rem; text-align:center; padding:8px; background:var(--bg-light); border-radius:3px; flex:1;"><div style="color:var(--text-muted); font-size:0.68rem; margin-bottom:3px;">Intermediate</div>Enriched & transformed</div>
+                        <div style="color:var(--border-strong);">→</div>
+                        <div style="font-size:0.78rem; text-align:center; padding:8px; background:rgba(119,30,84,0.07); border:1px solid rgba(119,30,84,0.2); border-radius:3px; flex:1;"><div style="color:var(--red); font-size:0.68rem; margin-bottom:3px;">Marts</div>Final analytics tables</div>
+                    </div>
+                </div>
+                <div style="color:var(--border-strong); font-size:1.2rem; flex-shrink:0;">→</div>
+                <!-- Delivery -->
+                <div style="background:#fff; border:1px solid var(--border); border-top:3px solid #34a853; border-radius:4px; padding:14px 16px; min-width:150px;">
+                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#34a853; margin-bottom:6px;">Delivery</div>
+                    <div style="font-size:0.85rem; font-weight:600; margin-bottom:4px;">Power BI + Frontoffice</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted);">BBVA Workspace via API<br>Row Level Security</div>
                 </div>
             </div>
-        </div>
-        <div class="arch-wrapper">
-            <div class="arch-row">
-                <div class="arch-block highlight">
-                    <div class="arch-label">Source</div>
-                    <div class="arch-title">Production Database</div>
-                    <div class="arch-desc">RDS Read Replica + Transaction Log Events via DMS Service → Amazon S3</div>
-                </div>
-                <div class="arch-arrow">→</div>
-                <div class="arch-block highlight">
-                    <div class="arch-label">Lake</div>
-                    <div class="arch-title">Delta Lake (Bronze → Silver)</div>
-                    <div class="arch-desc">dbt transformations: deduplication, SCD handling, point-in-time dimensions. Powered by Airflow.</div>
-                </div>
-                <div class="arch-arrow">→</div>
-                <div class="arch-block highlight">
-                    <div class="arch-label">Warehouse</div>
-                    <div class="arch-title">Murphy Warehouse</div>
-                    <div class="arch-desc">Raw → Staging → Intermediate → Marts. All layers via dbt. Airflow orchestration.</div>
-                </div>
-                <div class="arch-arrow">→</div>
-                <div class="arch-block highlight">
-                    <div class="arch-label">Delivery</div>
-                    <div class="arch-title">Power BI + Frontoffice</div>
-                    <div class="arch-desc">BBVA Workspace shared to client via API. Row Level Security by company_code. Embedded reports.</div>
-                </div>
+            <div style="display:flex; justify-content:center; gap:8px; margin-top:4px;">
+                <div style="background:rgba(119,30,84,0.06); border:1px dashed rgba(119,30,84,0.2); border-radius:4px; padding:10px 20px; font-size:0.78rem; color:var(--text-muted);">🔄 Orchestrated by <strong style="color:var(--text-primary);">Apache Airflow</strong> — dbt build runs models + tests in dependency order</div>
+                <div style="background:rgba(119,30,84,0.06); border:1px dashed rgba(119,30,84,0.2); border-radius:4px; padding:10px 20px; font-size:0.78rem; color:var(--text-muted);">🔒 <strong style="color:var(--text-primary);">Row-level security</strong> by company_code — 40+ tenants, single pipeline</div>
             </div>
         </div>
-        <div class="slide-footer">
-            <span>Miguel Palos Pou — Senior Data Engineer</span>
-            <span class="page-number">03 / 07</span>
-        </div>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">03 / 11</span></div>
     </div>
 
-    <!-- Slide 5: Project Impact -->
+    <!-- 4: Project 1 — Semantic Layer -->
     <div class="slide" id="slide-4">
         <div class="section-header">
             <div class="section-number">02</div>
             <div>
-                <h2 class="section-title">Platform Impact</h2>
-                <p class="section-subtitle">What the architecture enables</p>
+                <h2 class="section-title">Project 1 — Semantic Layer</h2>
+                <p class="section-subtitle">MetricFlow server: single source of truth for metrics across BI and AI</p>
+            </div>
+        </div>
+        <div class="card accent" style="margin-bottom:20px;">
+            <div class="card-header"><div class="card-icon">🎯</div><h3 class="card-title">Problem</h3></div>
+            <div class="card-content">Metric definitions were duplicated across Power BI reports, dashboards, and AI tools — every team calculated revenue, conversion rates, and KPIs differently. A single semantic layer eliminates this drift and makes metrics queryable via SQL, REST API, and natural language.</div>
+        </div>
+        <!-- Semantic Layer diagram -->
+        <div style="flex:1; display:flex; align-items:stretch; gap:8px; overflow-x:auto;">
+            <!-- Dev Team -->
+            <div style="background:rgba(119,30,84,0.04); border:1px solid rgba(119,30,84,0.15); border-radius:6px; padding:16px; display:flex; flex-direction:column; gap:8px; min-width:130px;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:4px;">Dev · Data Team</div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center;">dbt YAMLs</div>
+                <div style="font-size:0.72rem; color:var(--text-muted); text-align:center;">metrics · dimensions<br>entities</div>
+            </div>
+            <div style="display:flex; flex-direction:column; justify-content:center; padding:0 6px; color:var(--border-strong);">
+                <div style="font-size:0.65rem; color:var(--text-muted); text-align:center; margin-bottom:4px;">push to main</div>
+                <div style="font-size:1.1rem;">→</div>
+            </div>
+            <!-- CI/CD -->
+            <div style="background:rgba(119,30,84,0.04); border:1px solid rgba(119,30,84,0.15); border-radius:6px; padding:16px; display:flex; flex-direction:column; gap:8px; min-width:140px;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:4px;">CI/CD</div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center;">dbt compile<br>semantic_manifest.json</div>
+                <div style="color:var(--border-strong); text-align:center; font-size:0.9rem;">↓</div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center;">POST /admin/refresh</div>
+            </div>
+            <div style="display:flex; align-items:center; padding:0 6px; color:var(--border-strong);">→</div>
+            <!-- MetricFlow Server -->
+            <div style="background:rgba(119,30,84,0.04); border:1px solid rgba(119,30,84,0.15); border-radius:6px; padding:16px; display:flex; flex-direction:column; gap:8px; flex:1;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:4px;">MetricFlow Server</div>
+                <div style="display:flex; gap:8px; align-items:center;">
+                    <div style="background:#fff; border:1px solid rgba(119,30,84,0.3); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center; flex:1;">Manifest</div>
+                    <div style="color:var(--border-strong);">→</div>
+                    <div style="background:#fff; border:1px solid rgba(119,30,84,0.3); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center; flex:2;">MetricFlow Engine<br><span style="font-weight:400; color:var(--text-muted); font-size:0.72rem;">resolves joins · generates SQL</span></div>
+                    <div style="color:var(--border-strong);">↔</div>
+                    <div style="background:#fff; border:1px solid rgba(119,30,84,0.3); border-radius:4px; padding:10px; font-size:0.78rem; font-weight:600; text-align:center; flex:1;">REST API</div>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:4px;">
+                    <div style="background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.3); border-radius:4px; padding:8px 12px; font-size:0.72rem; color:#a06800; flex:1; text-align:center;"><strong>Redshift</strong><br>Staging & Mart Tables</div>
+                </div>
+            </div>
+            <div style="display:flex; align-items:center; padding:0 6px; color:var(--border-strong);">→</div>
+            <!-- BI Layer + Slack -->
+            <div style="display:flex; flex-direction:column; gap:8px; min-width:150px;">
+                <div style="background:rgba(52,168,83,0.05); border:1px solid rgba(52,168,83,0.2); border-radius:6px; padding:14px; flex:1;">
+                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#2e7d32; margin-bottom:6px;">BI Layer</div>
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:8px; font-size:0.75rem; font-weight:600; margin-bottom:6px; text-align:center;">metricflow-dialect<br><span style="font-weight:400; color:var(--text-muted);">SQL → REST</span></div>
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:8px; font-size:0.75rem; font-weight:600; text-align:center;">Dashboards & Charts</div>
+                </div>
+                <div style="background:rgba(74,144,217,0.05); border:1px solid rgba(74,144,217,0.2); border-radius:6px; padding:14px;">
+                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#1a5e99; margin-bottom:6px;">Slack</div>
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:8px; font-size:0.75rem; font-weight:600; text-align:center;">Metrics Bot<br><span style="font-weight:400; color:var(--text-muted);">natural language → REST</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">04 / 11</span></div>
+    </div>
+
+    <!-- 5: Project 1 Impact -->
+    <div class="slide alt" id="slide-5">
+        <div class="section-header">
+            <div class="section-number">02</div>
+            <div>
+                <h2 class="section-title">Project 1 — Impact</h2>
+                <p class="section-subtitle">What the platform enables</p>
             </div>
         </div>
         <div class="impact-grid">
             <div class="impact-item">
                 <div class="impact-title">Multi-Tenant Analytics at Scale</div>
-                <div class="impact-desc">A single pipeline serves 40+ clients with full data isolation via row-level security — no duplicated infrastructure, no per-client engineering.</div>
+                <div class="impact-desc">A single pipeline serves 40+ clients with full data isolation via row-level security — no duplicated infrastructure, no per-client engineering overhead.</div>
             </div>
             <div class="impact-item">
                 <div class="impact-title">Reliable Daily Data Delivery</div>
-                <div class="impact-desc">Airflow-orchestrated dbt build runs models and tests in dependency order — a failed test stops downstream models before bad data reaches dashboards.</div>
+                <div class="impact-desc">Airflow-orchestrated dbt build runs models and tests in dependency order. A failed test stops downstream models before bad data reaches dashboards.</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-title">Single Metric Definition</div>
+                <div class="impact-desc">MetricFlow semantic layer eliminates metric drift across teams. Revenue, conversion rates, and KPIs are defined once and consumed consistently by BI tools, AI agents, and the Slack metrics bot.</div>
             </div>
             <div class="impact-item">
                 <div class="impact-title">Client-Facing Embedded BI</div>
-                <div class="impact-desc">Clients access their own Power BI workspace via API with live connections to a shared semantic model — reducing report maintenance from N copies to 1.</div>
-            </div>
-            <div class="impact-item">
-                <div class="impact-title">Semantic Layer & MetricFlow</div>
-                <div class="impact-desc">Introduced MetricFlow server as a semantic layer, enabling consistent metric definitions across dashboards and AI tools without duplicating business logic.</div>
+                <div class="impact-desc">Clients access their Power BI workspace via API with live connections to a shared semantic model — reducing report maintenance from N copies to one.</div>
             </div>
         </div>
-        <div class="slide-footer">
-            <span>Miguel Palos Pou — Senior Data Engineer</span>
-            <span class="page-number">04 / 07</span>
-        </div>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">05 / 11</span></div>
     </div>
 
-    <!-- Slide 6: Skills -->
-    <div class="slide alt" id="slide-5">
+    <!-- 6: Project 2 — QA Evaluators Overview + Architecture -->
+    <div class="slide" id="slide-6">
         <div class="section-header">
-            <div class="section-number">03</div>
+            <div class="section-number">02</div>
             <div>
-                <h2 class="section-title">Skills & Stack</h2>
-                <p class="section-subtitle">Production-tested tools across the data engineering lifecycle</p>
+                <h2 class="section-title">Project 2 — AI QA Evaluation System</h2>
+                <p class="section-subtitle">Automated LLM-based compliance evaluation for AI debt collection agents · Murphy</p>
             </div>
         </div>
-        <table class="skills-table">
+        <div class="card accent" style="margin-bottom:20px;">
+            <div class="card-header"><div class="card-icon">🎯</div><h3 class="card-title">Problem</h3></div>
+            <div class="card-content">Murphy's AI agents handle thousands of regulated debt collection calls daily. Manual QA review is impossible at scale — but regulatory compliance is non-negotiable. Agents must verify identity before disclosing debt, state correct amounts, and follow strict conversation protocols. Any failure creates legal exposure.</div>
+        </div>
+        <!-- QA Architecture diagram -->
+        <div style="flex:1; display:flex; gap:16px;">
+            <!-- Sources -->
+            <div style="display:flex; flex-direction:column; gap:8px; min-width:160px;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#4A90D9; margin-bottom:4px; border-top: 2px solid #4A90D9; padding-top:6px;">Sources</div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:12px; font-size:0.8rem;">
+                    <div style="font-weight:600; margin-bottom:2px;">Postgres Orchestrator</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">Call transcripts &amp; metadata</div>
+                </div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:12px; font-size:0.8rem;">
+                    <div style="font-weight:600; margin-bottom:2px;">Postgres Company Service</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">National IDs · contract amounts</div>
+                </div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:12px; font-size:0.8rem;">
+                    <div style="font-weight:600; margin-bottom:2px;">Langfuse</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">Versioned eval prompts<br>per company + test</div>
+                </div>
+            </div>
+            <div style="display:flex; align-items:center; color:var(--border-strong); font-size:1.2rem;">→</div>
+            <!-- Processing -->
+            <div style="display:flex; flex-direction:column; gap:8px; flex:1;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:4px; border-top: 2px solid var(--red); padding-top:6px;">Processing · Airflow every 30min, 9–18h Mon–Sat</div>
+                <div style="background:rgba(119,30,84,0.04); border:1px solid rgba(119,30,84,0.2); border-radius:4px; padding:14px; flex:1;">
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div style="background:#fff; border:1px solid var(--border); border-radius:3px; padding:10px; font-size:0.78rem;"><strong>QA Repository</strong> — fetches completed calls, resolves company + tests to run, skips already-evaluated pairs</div>
+                        <div style="text-align:center; color:var(--border-strong);">↓</div>
+                        <div style="background:#fff; border:1px solid var(--border); border-radius:3px; padding:10px; font-size:0.78rem;"><strong>GPT Evaluator</strong> — transcript + versioned prompt → <span style="color:#1e7e34; font-weight:600;">pass</span> / <span style="color:var(--red); font-weight:600;">under_revision</span> / <span style="color:var(--text-muted); font-weight:600;">n/a</span></div>
+                        <div style="text-align:center; color:var(--border-strong);">↓</div>
+                        <div style="background:#fff; border:1px solid var(--border); border-radius:3px; padding:10px; font-size:0.78rem;"><strong>Programmatic checks</strong> — speaking time ratio, amount comparison (±€0.70), identity match vs DB</div>
+                    </div>
+                </div>
+            </div>
+            <div style="display:flex; align-items:center; color:var(--border-strong); font-size:1.2rem;">→</div>
+            <!-- Output -->
+            <div style="display:flex; flex-direction:column; gap:8px; min-width:160px;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#34a853; margin-bottom:4px; border-top: 2px solid #34a853; padding-top:6px;">Output</div>
+                <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:12px; font-size:0.8rem; flex:1;">
+                    <div style="font-weight:600; margin-bottom:2px;">Redshift</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">qa_automation.test_results<br>company · call · test · result · reasoning</div>
+                </div>
+                <div style="background:#fff; border:1px solid rgba(227,6,19,0.3); border-radius:4px; padding:12px; font-size:0.8rem;">
+                    <div style="font-weight:600; margin-bottom:2px; color:var(--red);">Slack #qa-alerts</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">under_revision only<br>link to call in front office</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">06 / 11</span></div>
+    </div>
+
+    <!-- 7: Project 2 — Test Suite -->
+    <div class="slide alt" id="slide-7">
+        <div class="section-header">
+            <div class="section-number">02</div>
+            <div>
+                <h2 class="section-title">Project 2 — Test Suite</h2>
+                <p class="section-subtitle">8 automated evaluations per call · configurable per company via Airflow Variables</p>
+            </div>
+        </div>
+        <table class="tests-table">
             <thead>
                 <tr>
-                    <th>Category</th>
-                    <th>Technologies</th>
+                    <th>Test</th>
+                    <th>Type</th>
+                    <th>What it checks</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Languages</td>
-                    <td>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Bash</span>
-                    </td>
+                    <td>pre_verification_debt_disclosure</td>
+                    <td><span class="test-type llm">LLM</span></td>
+                    <td>Agent must NOT mention debt before verifying identity</td>
                 </tr>
                 <tr>
-                    <td>Transformation</td>
-                    <td>
-                        <span class="skill-tag">dbt</span>
-                        <span class="skill-tag">Apache Spark</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">Delta Lake</span>
-                    </td>
+                    <td>correct_amount_disclosure</td>
+                    <td><span class="test-type hybrid">LLM + Prog</span></td>
+                    <td>Agent states correct total debt — LLM extracts amount, compared vs contracts DB (±€0.70)</td>
                 </tr>
                 <tr>
-                    <td>Orchestration</td>
-                    <td>
-                        <span class="skill-tag">Apache Airflow</span>
-                        <span class="skill-tag">GitHub Actions</span>
-                    </td>
+                    <td>identity_verification_format</td>
+                    <td><span class="test-type llm">LLM</span></td>
+                    <td>Agent asks for ID in the correct format (3 digits, letter, CIF, etc.)</td>
                 </tr>
                 <tr>
-                    <td>Cloud & Storage</td>
-                    <td>
-                        <span class="skill-tag">AWS S3</span>
-                        <span class="skill-tag">Redshift</span>
-                        <span class="skill-tag">Athena</span>
-                        <span class="skill-tag">DMS</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                    </td>
+                    <td>identity_verification_correctness</td>
+                    <td><span class="test-type hybrid">LLM + Prog</span></td>
+                    <td>Person provided the correct ID value — LLM extracts, compared vs national_id in DB</td>
                 </tr>
                 <tr>
-                    <td>Streaming</td>
-                    <td>
-                        <span class="skill-tag">Apache Kafka</span>
-                        <span class="skill-tag">MSK</span>
-                    </td>
+                    <td>identity_verification_capture_difficulty</td>
+                    <td><span class="test-type llm">LLM</span></td>
+                    <td>Agent struggled to capture ID despite person cooperating (re-asks 2+, comprehension failure)</td>
                 </tr>
                 <tr>
-                    <td>Infrastructure</td>
-                    <td>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">ArgoCD</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Docker</span>
-                    </td>
+                    <td>speaking_time_ratio</td>
+                    <td><span class="test-type prog">Programmatic</span></td>
+                    <td>Agent speaking ≥35% of time — flags if person speaks &gt;65% (agent barely engaging)</td>
                 </tr>
                 <tr>
-                    <td>Analytics & BI</td>
-                    <td>
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">MetricFlow</span>
-                        <span class="skill-tag">Superset</span>
-                        <span class="skill-tag">Semantic Layer</span>
-                    </td>
+                    <td>sub_scenario_association_debt</td>
+                    <td><span class="test-type llm">LLM</span></td>
+                    <td>Deep-dive when call stalled on debt (dispute, ignore, negotiate) — conditional on classifier</td>
+                </tr>
+                <tr>
+                    <td>sub_scenario_association_verification</td>
+                    <td><span class="test-type llm">LLM</span></td>
+                    <td>Deep-dive when call stalled at identity verification — conditional on classifier</td>
                 </tr>
             </tbody>
         </table>
-        <div class="slide-footer">
-            <span>Miguel Palos Pou — Senior Data Engineer</span>
-            <span class="page-number">05 / 07</span>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <div style="font-size:0.78rem; color:var(--text-muted); background:var(--bg-card); border:1px solid var(--border); border-radius:4px; padding:8px 14px;">🔀 Prompt resolution: <strong>company-specific → generic</strong> — override any test for any client without touching defaults</div>
+            <div style="font-size:0.78rem; color:var(--text-muted); background:var(--bg-card); border:1px solid var(--border); border-radius:4px; padding:8px 14px;">🗂 Prompts versioned in <strong>Langfuse</strong> · results stored in <strong>Redshift qa_automation.test_results</strong></div>
         </div>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">07 / 11</span></div>
     </div>
 
-    <!-- Slide 7: Education -->
-    <div class="slide" id="slide-6">
+    <!-- 8: Project 2 Impact -->
+    <div class="slide" id="slide-8">
+        <div class="section-header">
+            <div class="section-number">02</div>
+            <div>
+                <h2 class="section-title">Project 2 — Impact</h2>
+                <p class="section-subtitle">What the QA system enables</p>
+            </div>
+        </div>
+        <div class="impact-grid">
+            <div class="impact-item">
+                <div class="impact-title">100% Call Coverage, Zero Manual Review</div>
+                <div class="impact-desc">Every completed call is evaluated automatically within 30 minutes. No sampling — full coverage of compliance-critical interactions across all 40+ client companies.</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-title">Real-Time Compliance Alerting</div>
+                <div class="impact-desc">Any under_revision result triggers an instant Slack alert with a direct link to the call — human reviewers only engage when the system flags an issue.</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-title">Per-Company Customisation</div>
+                <div class="impact-desc">Each client can have custom evaluation prompts and a different set of active tests — configured via Airflow Variables and Langfuse without code changes.</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-title">Structured QA Data for Analytics</div>
+                <div class="impact-desc">All results land in Redshift with full reasoning — enabling trend analysis, agent performance tracking, and feedback loops into model and script improvements.</div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">08 / 11</span></div>
+    </div>
+
+    <!-- 9: Skills -->
+    <div class="slide alt" id="slide-9">
+        <div class="section-header">
+            <div class="section-number">03</div>
+            <div>
+                <h2 class="section-title">Skills & Stack</h2>
+                <p class="section-subtitle">Production-tested across the full data engineering lifecycle</p>
+            </div>
+        </div>
+        <table class="skills-table">
+            <thead><tr><th>Category</th><th>Technologies</th></tr></thead>
+            <tbody>
+                <tr><td>Languages</td><td><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Bash</span></td></tr>
+                <tr><td>Transformation</td><td><span class="skill-tag">dbt</span><span class="skill-tag">Apache Spark</span><span class="skill-tag">Pandas</span><span class="skill-tag">Delta Lake</span></td></tr>
+                <tr><td>Orchestration</td><td><span class="skill-tag">Apache Airflow</span><span class="skill-tag">GitHub Actions</span></td></tr>
+                <tr><td>Cloud & Storage</td><td><span class="skill-tag">AWS S3</span><span class="skill-tag">Redshift</span><span class="skill-tag">Athena</span><span class="skill-tag">DMS</span><span class="skill-tag">PostgreSQL</span></td></tr>
+                <tr><td>Streaming</td><td><span class="skill-tag">Apache Kafka</span><span class="skill-tag">MSK</span></td></tr>
+                <tr><td>Infrastructure</td><td><span class="skill-tag">Kubernetes</span><span class="skill-tag">ArgoCD</span><span class="skill-tag">Terraform</span><span class="skill-tag">Docker</span></td></tr>
+                <tr><td>Analytics & BI</td><td><span class="skill-tag">Power BI</span><span class="skill-tag">MetricFlow</span><span class="skill-tag">Superset</span><span class="skill-tag">Semantic Layer</span></td></tr>
+                <tr><td>AI / LLM</td><td><span class="skill-tag">GPT / OpenAI</span><span class="skill-tag">Langfuse</span><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">LLM Evaluation</span></td></tr>
+            </tbody>
+        </table>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">09 / 11</span></div>
+    </div>
+
+    <!-- 10: Education -->
+    <div class="slide" id="slide-10">
         <div class="section-header">
             <div class="section-number">01</div>
             <div>
@@ -830,105 +621,76 @@
         </div>
         <div class="content-grid">
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">🎓</div>
-                    <h3 class="card-title">MSc Artificial Intelligence</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Universitat Politècnica de Catalunya (UPC)</li>
-                        <li>Machine learning, deep learning & optimization</li>
-                        <li>Research focus: scalable AI systems</li>
-                    </ul>
-                </div>
+                <div class="card-header"><div class="card-icon">🎓</div><h3 class="card-title">MSc Artificial Intelligence</h3></div>
+                <div class="card-content"><ul>
+                    <li>Universitat Politècnica de Catalunya (UPC)</li>
+                    <li>Machine learning, deep learning & optimisation</li>
+                    <li>Focus on scalable AI systems</li>
+                </ul></div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">💻</div>
-                    <h3 class="card-title">Data Analytics Bootcamp</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Ironhack Barcelona</li>
-                        <li>Intensive hands-on data analytics training</li>
-                        <li>Statistics, Python, SQL, visualization</li>
-                    </ul>
-                </div>
+                <div class="card-header"><div class="card-icon">💻</div><h3 class="card-title">Data Analytics Bootcamp</h3></div>
+                <div class="card-content"><ul>
+                    <li>Ironhack Barcelona</li>
+                    <li>Intensive hands-on data analytics training</li>
+                    <li>Statistics, Python, SQL, visualisation</li>
+                </ul></div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">📊</div>
-                    <h3 class="card-title">Analytics Engineering</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>3+ years production dbt experience</li>
-                        <li>dbt Certified Developer</li>
-                        <li>Data modelling best practices</li>
-                    </ul>
-                </div>
+                <div class="card-header"><div class="card-icon">📊</div><h3 class="card-title">Analytics Engineering</h3></div>
+                <div class="card-content"><ul>
+                    <li>3+ years production dbt experience</li>
+                    <li>Data modelling best practices</li>
+                    <li>Semantic layer & metric definition</li>
+                </ul></div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">☁️</div>
-                    <h3 class="card-title">Cloud & Architecture</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>AWS ecosystem (S3, Redshift, Athena, DMS, MSK)</li>
-                        <li>Kubernetes / ArgoCD / Terraform in production</li>
-                        <li>Data lakehouse & warehouse architecture</li>
-                    </ul>
-                </div>
+                <div class="card-header"><div class="card-icon">☁️</div><h3 class="card-title">Cloud & Architecture</h3></div>
+                <div class="card-content"><ul>
+                    <li>AWS ecosystem in production (S3, Redshift, Athena, DMS, MSK)</li>
+                    <li>Kubernetes / ArgoCD / Terraform</li>
+                    <li>Data lakehouse & warehouse design</li>
+                </ul></div>
             </div>
         </div>
-        <div class="slide-footer">
-            <span>Miguel Palos Pou — Senior Data Engineer</span>
-            <span class="page-number">06 / 07</span>
-        </div>
+        <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">10 / 11</span></div>
     </div>
 
-    <!-- Slide 8: Thanks -->
-    <div class="slide thanks-slide" id="slide-7">
+    <!-- 11: Thanks -->
+    <div class="slide thanks-slide" id="slide-11">
         <div class="badge" style="border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.75);"><span style="background:#fff;"></span>Senior Data Engineer</div>
         <h1 class="thanks-title">Let's talk.</h1>
         <p class="thanks-sub">Always interested in ambitious data challenges.</p>
         <div class="thanks-meta">
             <div class="meta-item">🏢 <strong>Currently @ Murphy</strong></div>
             <div class="meta-item">📍 <strong>Barcelona, Spain</strong></div>
-            <div class="meta-item">🎓 <strong>MSc AI — UPC</strong></div>
             <div class="meta-item">🔗 <strong>linkedin.com/in/miguelpalospou</strong></div>
+            <div class="meta-item">📅 <strong>21 / 04 / 2026</strong></div>
         </div>
     </div>
 
 </div>
-
 <script>
     const slides = document.querySelectorAll('.slide');
     const navDots = document.getElementById('navDots');
     let current = 0;
-
     slides.forEach((_, i) => {
         const dot = document.createElement('div');
         dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
         dot.onclick = () => scrollToSlide(i);
         navDots.appendChild(dot);
     });
-
     const dots = document.querySelectorAll('.nav-dot');
-
     function scrollToSlide(i) {
         if (i < 0 || i >= slides.length) return;
         slides[i].scrollIntoView({ behavior: 'smooth' });
         current = i;
         dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
     }
-
     document.addEventListener('keydown', e => {
-        if (['ArrowDown', 'ArrowRight', ' '].includes(e.key)) { e.preventDefault(); scrollToSlide(current + 1); }
-        if (['ArrowUp', 'ArrowLeft'].includes(e.key)) { e.preventDefault(); scrollToSlide(current - 1); }
+        if (['ArrowDown','ArrowRight',' '].includes(e.key)) { e.preventDefault(); scrollToSlide(current + 1); }
+        if (['ArrowUp','ArrowLeft'].includes(e.key)) { e.preventDefault(); scrollToSlide(current - 1); }
     });
-
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -937,7 +699,6 @@
             }
         });
     }, { threshold: 0.5 });
-
     slides.forEach(s => observer.observe(s));
 </script>
 </body>
