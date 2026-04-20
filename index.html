@@ -38,11 +38,12 @@
         .slide::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--red); }
 
         /* Title */
-        .title-slide { justify-content: center; align-items: flex-start; background: #1A1A1A; }
+        .title-slide { justify-content: center; align-items: flex-start; background: #fff; }
         .title-slide::before { height: 6px; }
-        .badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border: 1px solid rgba(255,255,255,0.2); border-radius: 2px; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+        .title-slide::after { content: ''; position: absolute; top: 0; right: 0; width: 40px; height: 100%; background: var(--red); }
+        .badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border: 1px solid rgba(0,0,0,0.15); border-radius: 2px; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,0.5); margin-bottom: 40px; }
         .badge span { width: 8px; height: 8px; background: var(--red); border-radius: 50%; }
-        .main-title { font-size: 5rem; font-weight: 800; line-height: 1; margin-bottom: 10px; color: #fff; letter-spacing: -2px; }
+        .main-title { font-size: 5rem; font-weight: 800; line-height: 1; margin-bottom: 10px; color: var(--red); letter-spacing: -2px; }
         .main-title em { color: var(--red); font-style: normal; }
         .subtitle { font-size: 1.25rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 60px; }
         .meta-info { display: flex; gap: 32px; flex-wrap: wrap; font-size: 0.88rem; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
@@ -194,11 +195,11 @@
     <!-- 0: Title -->
     <div class="slide title-slide" id="slide-0">
         <h1 class="main-title">MIGUEL<br><em>PALOS POU</em></h1>
-        <p class="subtitle">Data Engineer | <em>Senior Data Engineer</em></p>
-        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.5); margin-top: 40px;">21/04/2026</p>
+        <p class="subtitle" style="color: #1A1A1A;">Data Engineer | <em>Senior Data Engineer</em></p>
+        <p style="font-size: 1.1rem; color: rgba(0,0,0,0.4); margin-top: 40px;">21/04/2026</p>
         <div style="position: absolute; bottom: 70px; left: 100px;">
-            <div style="font-size: 2.2rem; font-weight: 800; color: #fff; letter-spacing: 2px;">KION<span style="color: var(--red);">¯</span></div>
-            <div style="font-size: 0.9rem; font-weight: 600; letter-spacing: 4px; color: rgba(255,255,255,0.6); margin-top: -4px;">GROUP</div>
+            <div style="font-size: 2.2rem; font-weight: 800; color: #1A1A1A; letter-spacing: 2px;">KION<span style="color: var(--red);">¯</span></div>
+            <div style="font-size: 0.9rem; font-weight: 600; letter-spacing: 4px; color: rgba(0,0,0,0.5); margin-top: -4px;">GROUP</div>
         </div>
     </div>
 
@@ -213,20 +214,20 @@
         </div>
         <div class="content-grid">
             <div class="card">
-                <div class="card-header"><div class="card-icon">01</div><h3 class="card-title">Profile & Experience</h3></div>
+                <div class="card-header"><div class="card-icon">01</div><h3 class="card-title">Education</h3></div>
+                <div class="card-content">MSc Artificial Intelligence (UPC), Ironhack Data Analytics Bootcamp, and continuous learning in cloud architecture.</div>
+            </div>
+            <div class="card">
+                <div class="card-header"><div class="card-icon">02</div><h3 class="card-title">Experience</h3></div>
                 <div class="card-content">Career path from analytics engineering to senior data engineering across top-tier companies.</div>
             </div>
             <div class="card">
-                <div class="card-header"><div class="card-icon">02</div><h3 class="card-title">Projects</h3></div>
-                <div class="card-content">Murphy Data Platform (pipeline + semantic layer) and AI-powered QA Evaluation System.</div>
+                <div class="card-header"><div class="card-icon">03</div><h3 class="card-title">Projects</h3></div>
+                <div class="card-content">Architected Murphy's entire data platform from scratch — pipelines, semantic layer, and AI-powered QA system.</div>
             </div>
             <div class="card">
-                <div class="card-header"><div class="card-icon">03</div><h3 class="card-title">Skills & Stack</h3></div>
+                <div class="card-header"><div class="card-icon">04</div><h3 class="card-title">Skills</h3></div>
                 <div class="card-content">Full data engineering stack — pipelines, warehouses, semantic layers, streaming, and infra.</div>
-            </div>
-            <div class="card">
-                <div class="card-header"><div class="card-icon">04</div><h3 class="card-title">Why This Role</h3></div>
-                <div class="card-content">Technical alignment, cultural fit, and what I bring to the next challenge.</div>
             </div>
         </div>
         <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">01 / 11</span></div>
@@ -407,51 +408,60 @@
         </div>
         <div class="card accent" style="margin-bottom:20px;">
             <div class="card-header"><div class="card-icon">🎯</div><h3 class="card-title">Problem</h3></div>
-            <div class="card-content">Murphy's AI agents handle thousands of regulated debt collection calls daily. Manual QA review is impossible at scale — but regulatory compliance is non-negotiable. Agents must verify identity before disclosing debt, state correct amounts, and follow strict conversation protocols. Any failure creates legal exposure.</div>
+            <div class="card-content">AI agents handle thousands of regulated debt collection calls daily. Manual QA review doesn't scale — yet compliance is non-negotiable: identity must be verified before disclosing debt, amounts must be accurate, and conversation protocols strictly followed.</div>
         </div>
         <!-- QA Architecture diagram -->
-        <div style="flex:1; display:flex; gap:16px;">
+        <div style="flex:1; display:flex; align-items:center; gap:18px;">
             <!-- Sources -->
-            <div style="display:flex; flex-direction:column; gap:8px; min-width:160px;">
-                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#4A90D9; margin-bottom:4px; border-top: 2px solid #4A90D9; padding-top:6px;">Sources</div>
+            <div style="display:flex; flex-direction:column; gap:10px; width:175px;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#4A90D9; border-top: 2px solid #4A90D9; padding-top:6px;">Inputs</div>
                 <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:12px; font-size:0.8rem;">
-                    <div style="font-weight:600; margin-bottom:2px;">Postgres Orchestrator</div>
-                    <div style="font-size:0.72rem; color:var(--text-muted);">Call transcripts &amp; metadata</div>
+                    <div style="font-weight:600;">Call Transcripts</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">conversations & metadata</div>
                 </div>
                 <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:12px; font-size:0.8rem;">
-                    <div style="font-weight:600; margin-bottom:2px;">Postgres Company Service</div>
-                    <div style="font-size:0.72rem; color:var(--text-muted);">National IDs · contract amounts</div>
+                    <div style="font-weight:600;">Ground Truth DB</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">debtor IDs & contract amounts</div>
                 </div>
                 <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:12px; font-size:0.8rem;">
-                    <div style="font-weight:600; margin-bottom:2px;">Langfuse</div>
-                    <div style="font-size:0.72rem; color:var(--text-muted);">Versioned eval prompts<br>per company + test</div>
+                    <div style="font-weight:600;">Prompt Registry</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">versioned eval prompts<br>per client + test</div>
                 </div>
             </div>
-            <div style="display:flex; align-items:center; color:var(--border-strong); font-size:1.2rem;">→</div>
+            <!-- Arrow -->
+            <div style="display:flex; flex-direction:column; align-items:center; color:var(--red); font-size:1.6rem; font-weight:700;">⟶</div>
             <!-- Processing -->
-            <div style="display:flex; flex-direction:column; gap:8px; flex:1;">
-                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:4px; border-top: 2px solid var(--red); padding-top:6px;">Processing · Airflow every 30min, 9–18h Mon–Sat</div>
-                <div style="background:rgba(119,30,84,0.04); border:1px solid rgba(119,30,84,0.2); border-radius:4px; padding:14px; flex:1;">
-                    <div style="display:flex; flex-direction:column; gap:8px;">
-                        <div style="background:#fff; border:1px solid var(--border); border-radius:3px; padding:10px; font-size:0.78rem;"><strong>QA Repository</strong> — fetches completed calls, resolves company + tests to run, skips already-evaluated pairs</div>
-                        <div style="text-align:center; color:var(--border-strong);">↓</div>
-                        <div style="background:#fff; border:1px solid var(--border); border-radius:3px; padding:10px; font-size:0.78rem;"><strong>GPT Evaluator</strong> — transcript + versioned prompt → <span style="color:#1e7e34; font-weight:600;">pass</span> / <span style="color:var(--red); font-weight:600;">under_revision</span> / <span style="color:var(--text-muted); font-weight:600;">n/a</span></div>
-                        <div style="text-align:center; color:var(--border-strong);">↓</div>
-                        <div style="background:#fff; border:1px solid var(--border); border-radius:3px; padding:10px; font-size:0.78rem;"><strong>Programmatic checks</strong> — speaking time ratio, amount comparison (±€0.70), identity match vs DB</div>
+            <div style="display:flex; flex-direction:column; gap:10px; flex:1;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); border-top: 2px solid var(--red); padding-top:6px;">Orchestration · Scheduled batch</div>
+                <div style="background:rgba(119,30,84,0.04); border:1px solid rgba(119,30,84,0.2); border-radius:6px; padding:16px; flex:1; display:flex; flex-direction:column; gap:10px;">
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:11px; font-size:0.78rem;">
+                        <div style="font-weight:700; margin-bottom:2px;">1 · Resolve</div>
+                        <div style="color:var(--text-muted); font-size:0.72rem;">Pick new calls · select active tests per client</div>
+                    </div>
+                    <div style="text-align:center; color:var(--red); font-size:1rem;">↓</div>
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:11px; font-size:0.78rem;">
+                        <div style="font-weight:700; margin-bottom:2px;">2 · Evaluate (LLM)</div>
+                        <div style="color:var(--text-muted); font-size:0.72rem;">Transcript + prompt → <span style="color:#1e7e34; font-weight:600;">pass</span> / <span style="color:var(--red); font-weight:600;">under_revision</span> / <span style="color:var(--text-muted); font-weight:600;">n/a</span></div>
+                    </div>
+                    <div style="text-align:center; color:var(--red); font-size:1rem;">↓</div>
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:11px; font-size:0.78rem;">
+                        <div style="font-weight:700; margin-bottom:2px;">3 · Verify (deterministic)</div>
+                        <div style="color:var(--text-muted); font-size:0.72rem;">Compare LLM-extracted values vs ground truth</div>
                     </div>
                 </div>
             </div>
-            <div style="display:flex; align-items:center; color:var(--border-strong); font-size:1.2rem;">→</div>
+            <!-- Arrow -->
+            <div style="display:flex; flex-direction:column; align-items:center; color:var(--red); font-size:1.6rem; font-weight:700;">⟶</div>
             <!-- Output -->
-            <div style="display:flex; flex-direction:column; gap:8px; min-width:160px;">
-                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#34a853; margin-bottom:4px; border-top: 2px solid #34a853; padding-top:6px;">Output</div>
+            <div style="display:flex; flex-direction:column; gap:10px; width:175px;">
+                <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#34a853; border-top: 2px solid #34a853; padding-top:6px;">Outputs</div>
                 <div style="background:#fff; border:1px solid var(--border); border-radius:4px; padding:12px; font-size:0.8rem; flex:1;">
-                    <div style="font-weight:600; margin-bottom:2px;">Redshift</div>
-                    <div style="font-size:0.72rem; color:var(--text-muted);">qa_automation.test_results<br>company · call · test · result · reasoning</div>
+                    <div style="font-weight:600;">Warehouse</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">structured results + reasoning, ready for analytics</div>
                 </div>
                 <div style="background:#fff; border:1px solid rgba(227,6,19,0.3); border-radius:4px; padding:12px; font-size:0.8rem;">
-                    <div style="font-weight:600; margin-bottom:2px; color:var(--red);">Slack #qa-alerts</div>
-                    <div style="font-size:0.72rem; color:var(--text-muted);">under_revision only<br>link to call in front office</div>
+                    <div style="font-weight:600; color:var(--red);">Real-time Alerts</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">flagged calls only<br>direct link for human review</div>
                 </div>
             </div>
         </div>
@@ -473,23 +483,23 @@
                 <div class="flow-content">
                     <div class="flow-label">Step 01</div>
                     <div class="flow-title">Ingest & Resolve</div>
-                    <div class="flow-desc">Airflow DAG fetches completed calls every 30 minutes. For each call, resolves the company and which tests to run — configurable per client via Airflow Variables.</div>
+                    <div class="flow-desc">A scheduled job ingests new calls and selects the active test suite per client — fully configurable without touching code.</div>
                 </div>
             </div>
             <div class="flow-step">
                 <div class="flow-connector"><div class="flow-dot"></div><div class="flow-line"></div></div>
                 <div class="flow-content">
                     <div class="flow-label">Step 02</div>
-                    <div class="flow-title">Evaluate with LLM + Programmatic Checks</div>
-                    <div class="flow-desc">Transcripts are sent to GPT with versioned prompts from Langfuse. Hybrid checks compare LLM-extracted values (amounts, IDs) against ground truth in the database.</div>
+                    <div class="flow-title">Hybrid Evaluation — LLM + Deterministic</div>
+                    <div class="flow-desc">An LLM evaluates transcripts using versioned prompts. For business-critical fields, deterministic checks compare the LLM's extracted values against ground truth in the database.</div>
                 </div>
             </div>
             <div class="flow-step">
                 <div class="flow-connector"><div class="flow-dot"></div></div>
                 <div class="flow-content">
                     <div class="flow-label">Step 03</div>
-                    <div class="flow-title">Alert & Store Results</div>
-                    <div class="flow-desc">All results land in Redshift with full reasoning. Calls flagged as <strong style="color:var(--red);">under_revision</strong> trigger Slack alerts with a direct link to the call for human review.</div>
+                    <div class="flow-title">Alert & Store</div>
+                    <div class="flow-desc">All results — pass or fail — land in the warehouse with full reasoning. Failures trigger real-time alerts so humans only review what truly needs attention.</div>
                 </div>
             </div>
         </div>
@@ -508,19 +518,19 @@
         <div class="impact-grid">
             <div class="impact-item">
                 <div class="impact-title">100% Call Coverage, Zero Manual Review</div>
-                <div class="impact-desc">Every completed call is evaluated automatically within 30 minutes. No sampling — full coverage of compliance-critical interactions across all 40+ client companies.</div>
+                <div class="impact-desc">Every completed call is evaluated automatically — no sampling. Full compliance coverage across all client companies.</div>
             </div>
             <div class="impact-item">
                 <div class="impact-title">Real-Time Compliance Alerting</div>
-                <div class="impact-desc">Any under_revision result triggers an instant Slack alert with a direct link to the call — human reviewers only engage when the system flags an issue.</div>
+                <div class="impact-desc">Failed evaluations trigger instant alerts with a direct link to the call — human reviewers engage only when the system surfaces an issue.</div>
             </div>
             <div class="impact-item">
                 <div class="impact-title">Per-Company Customisation</div>
-                <div class="impact-desc">Each client can have custom evaluation prompts and a different set of active tests — configured via Airflow Variables and Langfuse without code changes.</div>
+                <div class="impact-desc">Each client can have its own evaluation prompts and active test suite — configurable without touching code.</div>
             </div>
             <div class="impact-item">
                 <div class="impact-title">Structured QA Data for Analytics</div>
-                <div class="impact-desc">All results land in Redshift with full reasoning — enabling trend analysis, agent performance tracking, and feedback loops into model and script improvements.</div>
+                <div class="impact-desc">Every result lands in the warehouse with full reasoning — enabling trend analysis, agent performance tracking, and continuous improvement loops.</div>
             </div>
         </div>
         <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">08 / 11</span></div>
