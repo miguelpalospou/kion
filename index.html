@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oriol Porta – KION Group Application</title>
+    <title>Miguel Palos Pou — Senior Data Engineer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
         :root {
-            --red: #E30613;
-            --red-dark: #B8000F;
-            --red-light: rgba(227, 6, 19, 0.07);
+            --red: #771e54;
+            --red-dark: #5a1640;
+            --red-light: rgba(119, 30, 84, 0.07);
             --bg: #ffffff;
             --bg-light: #F7F7F7;
             --bg-card: #ffffff;
@@ -30,13 +30,8 @@
             overflow-x: hidden;
         }
 
-        .presentation {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .presentation { width: 100%; max-width: 1200px; margin: 0 auto; }
 
-        /* ── Slide base ── */
         .slide {
             min-height: 100vh;
             padding: 70px 100px;
@@ -47,11 +42,8 @@
             background: var(--bg);
         }
 
-        .slide.alt {
-            background: var(--bg-light);
-        }
+        .slide.alt { background: var(--bg-light); }
 
-        /* ── Red top bar ── */
         .slide::before {
             content: '';
             position: absolute;
@@ -60,58 +52,50 @@
             background: var(--red);
         }
 
-        /* ── Title slide ── */
+        /* ── Title ── */
         .title-slide {
             justify-content: center;
             align-items: flex-start;
             background: #1A1A1A;
-            color: #fff;
         }
 
-        .title-slide::before {
-            height: 6px;
-            background: var(--red);
-        }
+        .title-slide::before { height: 6px; }
 
-        .kion-badge {
+        .badge {
             display: inline-flex;
             align-items: center;
             gap: 10px;
             padding: 8px 18px;
-            border: 1px solid rgba(255,255,255,0.25);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 2px;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.6);
             margin-bottom: 40px;
         }
 
-        .kion-badge span {
+        .badge span {
             width: 8px; height: 8px;
             background: var(--red);
             border-radius: 50%;
-            display: inline-block;
         }
 
         .main-title {
             font-size: 5rem;
             font-weight: 800;
             line-height: 1;
-            margin-bottom: 12px;
-            color: #ffffff;
-            letter-spacing: -1px;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: -2px;
         }
 
-        .main-title em {
-            color: var(--red);
-            font-style: normal;
-        }
+        .main-title em { color: var(--red); font-style: normal; }
 
         .subtitle {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.55);
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.5);
             font-weight: 300;
             margin-bottom: 60px;
             letter-spacing: 0.5px;
@@ -120,8 +104,8 @@
         .meta-info {
             display: flex;
             gap: 40px;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.45);
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.4);
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 32px;
         }
@@ -139,15 +123,15 @@
 
         .section-number {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-size: 0.75rem;
+            font-weight: 600;
             color: var(--red);
             letter-spacing: 2px;
             padding: 6px 0;
             border-top: 2px solid var(--red);
-            width: 40px;
+            width: 36px;
             flex-shrink: 0;
-            margin-top: 6px;
+            margin-top: 8px;
         }
 
         .section-title {
@@ -162,10 +146,9 @@
             font-size: 1rem;
             color: var(--text-muted);
             margin-top: 6px;
-            font-weight: 400;
         }
 
-        /* ── Content grid ── */
+        /* ── Grid ── */
         .content-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -182,12 +165,12 @@
             border: 1px solid var(--border);
             border-radius: 4px;
             padding: 32px;
-            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .card:hover {
             border-color: var(--red);
-            box-shadow: 0 4px 20px rgba(227, 6, 19, 0.08);
+            box-shadow: 0 4px 20px rgba(119, 30, 84,0.08);
         }
 
         .card.accent {
@@ -207,41 +190,166 @@
         .card-icon {
             width: 36px; height: 36px;
             border-radius: 4px;
+            background: var(--red-light);
+            color: var(--red);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1rem;
-            background: var(--red-light);
-            color: var(--red);
             flex-shrink: 0;
         }
 
-        .card-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
+        .card-title { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); }
 
-        .card-content {
-            color: var(--text-secondary);
-            line-height: 1.75;
-            font-size: 0.93rem;
-        }
-
+        .card-content { color: var(--text-secondary); line-height: 1.75; font-size: 0.93rem; }
         .card-content ul { list-style: none; padding: 0; }
-
-        .card-content li {
-            padding: 5px 0 5px 20px;
-            position: relative;
-        }
-
+        .card-content li { padding: 5px 0 5px 20px; position: relative; }
         .card-content li::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 13px;
+            left: 0; top: 13px;
             width: 6px; height: 2px;
             background: var(--red);
+        }
+
+        /* ── Timeline (experience) ── */
+        .timeline { display: flex; flex-direction: column; gap: 0; flex: 1; }
+
+        .tl-item {
+            display: flex;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .tl-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            padding-top: 4px;
+        }
+
+        .tl-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--red);
+            flex-shrink: 0;
+        }
+
+        .tl-line {
+            width: 2px;
+            flex: 1;
+            background: var(--border);
+            min-height: 20px;
+        }
+
+        .tl-content {
+            flex: 1;
+            padding: 0 0 36px 0;
+        }
+
+        .tl-item:last-child .tl-content { padding-bottom: 0; }
+
+        .tl-period {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 4px;
+        }
+
+        .tl-company {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .tl-role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .tl-desc {
+            font-size: 0.91rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ── Architecture diagram ── */
+        .arch-wrapper {
+            flex: 1;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .arch-row {
+            display: flex;
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .arch-block {
+            flex: 1;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 20px;
+        }
+
+        .arch-block.highlight {
+            border-top: 3px solid var(--red);
+        }
+
+        .arch-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 6px;
+        }
+
+        .arch-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .arch-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .arch-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--border-strong);
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         /* ── Skills table ── */
@@ -254,7 +362,7 @@
         .skills-table th {
             text-align: left;
             padding: 14px 20px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -275,7 +383,7 @@
             font-weight: 600;
             color: var(--text-primary);
             font-size: 0.9rem;
-            width: 180px;
+            width: 200px;
             white-space: nowrap;
         }
 
@@ -298,67 +406,6 @@
             color: var(--red-dark);
         }
 
-        /* ── Flow steps ── */
-        .project-flow { display: flex; flex-direction: column; gap: 0; flex: 1; }
-
-        .flow-step {
-            display: flex;
-            gap: 28px;
-            align-items: stretch;
-        }
-
-        .flow-connector {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-            padding-top: 28px;
-        }
-
-        .flow-dot {
-            width: 14px; height: 14px;
-            border-radius: 50%;
-            background: var(--red);
-            flex-shrink: 0;
-        }
-
-        .flow-line {
-            width: 2px;
-            flex: 1;
-            background: var(--border);
-            min-height: 20px;
-        }
-
-        .flow-content {
-            flex: 1;
-            padding: 24px 0 32px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .flow-step:last-child .flow-content { border-bottom: none; }
-
-        .flow-label {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 8px;
-        }
-
-        .flow-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-
-        .flow-desc {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
         /* ── Impact grid ── */
         .impact-grid {
             display: grid;
@@ -375,78 +422,29 @@
             padding: 28px;
         }
 
-        .impact-title {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
+        .impact-title { font-weight: 600; color: var(--text-primary); margin-bottom: 10px; font-size: 1rem; }
+        .impact-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
 
-        .impact-desc {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        /* ── Why grid ── */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            flex: 1;
-        }
-
-        .why-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 36px;
-            position: relative;
-        }
-
-        .why-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--red);
-            opacity: 0.2;
-            margin-bottom: 20px;
-            line-height: 1;
-        }
-
-        .why-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-
-        .why-desc {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            font-size: 0.93rem;
-        }
-
-        /* ── Thanks slide ── */
+        /* ── Thanks ── */
         .thanks-slide {
             justify-content: center;
             align-items: flex-start;
             background: var(--red);
         }
 
-        .thanks-slide::before { background: #B8000F; height: 6px; }
+        .thanks-slide::before { background: var(--red-dark); height: 6px; }
 
         .thanks-title {
             font-size: 5rem;
             font-weight: 800;
             color: #fff;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
+            letter-spacing: -2px;
+            margin-bottom: 12px;
         }
 
         .thanks-sub {
             font-size: 1.2rem;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.65);
             font-weight: 300;
             margin-bottom: 60px;
         }
@@ -454,19 +452,18 @@
         .thanks-meta {
             display: flex;
             gap: 40px;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.6);
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.55);
             border-top: 1px solid rgba(255,255,255,0.2);
             padding-top: 32px;
         }
 
         .thanks-meta strong { color: #fff; font-weight: 500; }
 
-        /* ── Nav dots ── */
+        /* ── Nav ── */
         .nav-dots {
             position: fixed;
-            right: 28px;
-            top: 50%;
+            right: 28px; top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
@@ -505,12 +502,11 @@
             font-weight: 500;
         }
 
-        /* ── Responsive ── */
         @media (max-width: 768px) {
             .slide { padding: 40px 24px; }
             .main-title, .thanks-title { font-size: 2.8rem; }
             .section-title { font-size: 2rem; }
-            .content-grid, .why-grid, .impact-grid { grid-template-columns: 1fr; }
+            .content-grid, .impact-grid { grid-template-columns: 1fr; }
             .meta-info, .thanks-meta { flex-direction: column; gap: 12px; }
         }
 
@@ -528,441 +524,377 @@
 
     <!-- Slide 1: Title -->
     <div class="slide title-slide" id="slide-0">
-        <div class="kion-badge"><span></span>KION Group — Data Science Application</div>
-        <h1 class="main-title">ORIOL<br><em>PORTA</em></h1>
-        <p class="subtitle">Data Scientist &nbsp;·&nbsp; Generative AI Engineer</p>
+        <div class="badge"><span></span>Senior Data Engineer</div>
+        <h1 class="main-title">MIGUEL<br><em>PALOS POU</em></h1>
+        <p class="subtitle">Building data infrastructure that scales</p>
         <div class="meta-info">
+            <div class="meta-item">🏢 <strong>Murphy</strong></div>
             <div class="meta-item">📍 <strong>Barcelona, Spain</strong></div>
-            <div class="meta-item">🔗 <strong>linkedin.com/in/oriol-porta-tovar-321b41290</strong></div>
-            <div class="meta-item">📅 <strong>27 / 01 / 2026</strong></div>
+            <div class="meta-item">🎓 <strong>MSc AI — UPC</strong></div>
         </div>
     </div>
 
-    <!-- Slide 2: Table of Contents -->
+    <!-- Slide 2: Contents -->
     <div class="slide alt" id="slide-1">
         <div class="section-header">
             <div class="section-number">00</div>
             <div>
                 <h2 class="section-title">Contents</h2>
-                <p class="section-subtitle">Four sections, one purpose</p>
+                <p class="section-subtitle">Four sections</p>
             </div>
         </div>
         <div class="content-grid">
             <div class="card">
                 <div class="card-header">
                     <div class="card-icon">01</div>
-                    <h3 class="card-title">Quick Bio</h3>
+                    <h3 class="card-title">Profile & Experience</h3>
                 </div>
-                <div class="card-content">Background, education, and current professional focus in data and AI.</div>
+                <div class="card-content">Career path from analytics engineering to senior data engineering across top-tier companies.</div>
             </div>
             <div class="card">
                 <div class="card-header">
                     <div class="card-icon">02</div>
                     <h3 class="card-title">Projects</h3>
                 </div>
-                <div class="card-content">Two relevant projects — problem, solution, architecture, and strategic impact.</div>
+                <div class="card-content">End-to-end data platforms built in production — architecture, decisions, and measurable impact.</div>
             </div>
             <div class="card">
                 <div class="card-header">
                     <div class="card-icon">03</div>
-                    <h3 class="card-title">Skills & Tools</h3>
+                    <h3 class="card-title">Skills & Stack</h3>
                 </div>
-                <div class="card-content">Technical stack, frameworks, and methodologies actively in use.</div>
+                <div class="card-content">Full data engineering stack — from pipelines and warehouses to semantic layers and observability.</div>
             </div>
             <div class="card">
                 <div class="card-header">
                     <div class="card-icon">04</div>
-                    <h3 class="card-title">Why KION</h3>
+                    <h3 class="card-title">Why This Role</h3>
                 </div>
-                <div class="card-content">Technical fit, cultural alignment, and long-term value proposition.</div>
+                <div class="card-content">Technical alignment, cultural fit, and what I bring to the next challenge.</div>
             </div>
         </div>
         <div class="slide-footer">
-            <span>Oriol Porta — KION Group Application</span>
-            <span class="page-number">01 / 08</span>
+            <span>Miguel Palos Pou — Senior Data Engineer</span>
+            <span class="page-number">01 / 07</span>
         </div>
     </div>
 
-    <!-- Slide 3: Quick Bio -->
+    <!-- Slide 3: Experience -->
     <div class="slide" id="slide-2">
         <div class="section-header">
             <div class="section-number">01</div>
             <div>
-                <h2 class="section-title">Quick Bio</h2>
-                <p class="section-subtitle">Background and current focus</p>
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">Building data systems across industries</p>
             </div>
         </div>
-        <div class="content-grid">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">🎓</div>
-                    <h3 class="card-title">Education</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Bachelor's degree in Mathematics</li>
-                        <li>Master's degree in Artificial Intelligence</li>
-                        <li>Minor in Big Data</li>
-                        <li>Cloud Certifications (AWS / GCP)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">💼</div>
-                    <h3 class="card-title">Professional Profile</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Data Scientist & Generative AI Engineer</li>
-                        <li>3+ years building production AI systems</li>
-                        <li>Associate Professor at University</li>
-                        <li>Focus: pipelines, ETL, scalable architectures</li>
-                    </ul>
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                <div class="tl-content">
+                    <div class="tl-period">Current</div>
+                    <div class="tl-company">Murphy</div>
+                    <div class="tl-role">Senior Data Engineer</div>
+                    <div class="tl-desc">Designed and owns the full analytics data platform — ingestion, transformation, and delivery of data across the company. Built the ELT pipeline on AWS (S3 + Redshift) using dbt and Airflow, enabling multi-tenant analytics with row-level security for 40+ clients.</div>
+                    <div class="tl-tags">
+                        <span class="tag">dbt</span>
+                        <span class="tag">Airflow</span>
+                        <span class="tag">Redshift</span>
+                        <span class="tag">AWS S3</span>
+                        <span class="tag">Kafka</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">MetricFlow</span>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">🛠️</div>
-                    <h3 class="card-title">Technical Focus</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Machine & Deep Learning</li>
-                        <li>Generative AI, Agents & MCPs</li>
-                        <li>Data pipelines & feature engineering</li>
-                        <li>Optimization & decision-support systems</li>
-                    </ul>
+            <div class="tl-item">
+                <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                <div class="tl-content">
+                    <div class="tl-period">Previous</div>
+                    <div class="tl-company">BBVA</div>
+                    <div class="tl-role">Software / Data Engineer</div>
+                    <div class="tl-desc">Worked on data and software engineering within one of Europe's largest financial institutions. Built data pipelines and backend systems handling high-volume financial transactions and reporting.</div>
+                    <div class="tl-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Data Pipelines</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Backend Engineering</span>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">⚡</div>
-                    <h3 class="card-title">Beyond Tech</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Chess — strategic thinking</li>
-                        <li>AI Hackathons — rapid prototyping</li>
-                        <li>Data Community Meetups</li>
-                        <li>Hiking — problem-solving persistence</li>
-                    </ul>
+            <div class="tl-item">
+                <div class="tl-connector"><div class="tl-dot"></div></div>
+                <div class="tl-content">
+                    <div class="tl-period">Earlier</div>
+                    <div class="tl-company">SDG Group</div>
+                    <div class="tl-role">Analytics Engineer</div>
+                    <div class="tl-desc">Delivered analytics engineering projects for clients across multiple industries. Modelled data with dbt, built BI layers, and translated business requirements into robust data models.</div>
+                    <div class="tl-tags">
+                        <span class="tag">dbt</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Analytics</span>
+                        <span class="tag">BI</span>
+                        <span class="tag">Data Modelling</span>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="slide-footer">
-            <span>Oriol Porta — KION Group Application</span>
-            <span class="page-number">02 / 08</span>
+            <span>Miguel Palos Pou — Senior Data Engineer</span>
+            <span class="page-number">02 / 07</span>
         </div>
     </div>
 
-    <!-- Slide 4: Project 1 -->
+    <!-- Slide 4: Project — Murphy Data Platform -->
     <div class="slide alt" id="slide-3">
         <div class="section-header">
             <div class="section-number">02</div>
             <div>
-                <h2 class="section-title">Project #1</h2>
-                <p class="section-subtitle">Legal Procurement Document Processing — 2023</p>
-            </div>
-        </div>
-        <div class="content-grid full" style="margin-bottom: 20px;">
-            <div class="card accent">
-                <div class="card-header">
-                    <div class="card-icon">🎯</div>
-                    <h3 class="card-title">Problem Statement</h3>
-                </div>
-                <div class="card-content">
-                    A small team of state lawyers must legally validate a massive volume of complex, high-risk procurement files.
-                    A single mistake can become an appeal, an audit finding, or a contract annulment.
-                    Critical data is trapped in unstructured documents with no standardized extraction pipeline.
-                </div>
-            </div>
-        </div>
-        <div class="content-grid">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">⚙️</div>
-                    <h3 class="card-title">Solution</h3>
-                </div>
-                <div class="card-content">
-                    Desktop decision-support tool that automatically extracts, structures, and validates key contract elements:
-                    <ul style="margin-top:10px;">
-                        <li>VEC (Valor Estimado del Contrato)</li>
-                        <li>Contract type, object & CPV classification</li>
-                        <li>Award criteria & internal coherence checks</li>
-                        <li>Traceable audit trail — final decision stays with lawyers</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">📐</div>
-                    <h3 class="card-title">Agent Architecture</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Multi-format ingestion (PDF, DOCX)</li>
-                        <li>NLP extraction + rule-based validation</li>
-                        <li>Structured data warehouse with versioning</li>
-                        <li>API layer for legal decision support</li>
-                        <li>Data quality dashboards & alerts</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="slide-footer">
-            <span>Oriol Porta — KION Group Application</span>
-            <span class="page-number">03 / 08</span>
-        </div>
-    </div>
-
-    <!-- Slide 5: Project 1 Impact -->
-    <div class="slide" id="slide-4">
-        <div class="section-header">
-            <div class="section-number">02</div>
-            <div>
-                <h2 class="section-title">Project #1 — Impact</h2>
-                <p class="section-subtitle">Strategic outcomes of the procurement pipeline</p>
-            </div>
-        </div>
-        <div class="impact-grid">
-            <div class="impact-item">
-                <div class="impact-title">Standardization of Public Contracts</div>
-                <div class="impact-desc">Unified data schema across all procurement documents, enabling cross-departmental analytics and regulatory compliance reporting.</div>
-            </div>
-            <div class="impact-item">
-                <div class="impact-title">High-Value Historical Database</div>
-                <div class="impact-desc">Created a queryable structured archive, unlocking trend analysis and predictive bidding insights previously impossible to obtain.</div>
-            </div>
-            <div class="impact-item">
-                <div class="impact-title">Legal–Data Interoperability</div>
-                <div class="impact-desc">Bridged the gap between unstructured legal documents and structured databases, enabling automated compliance checks at scale.</div>
-            </div>
-            <div class="impact-item">
-                <div class="impact-title">Foundation for Advanced AI</div>
-                <div class="impact-desc">Clean pipeline serves as the data foundation for ML models moving from passive review to AI-assisted contract drafting.</div>
-            </div>
-        </div>
-        <div class="slide-footer">
-            <span>Oriol Porta — KION Group Application</span>
-            <span class="page-number">04 / 08</span>
-        </div>
-    </div>
-
-    <!-- Slide 6: Project 2 -->
-    <div class="slide alt" id="slide-5">
-        <div class="section-header">
-            <div class="section-number">02</div>
-            <div>
-                <h2 class="section-title">Project #2</h2>
-                <p class="section-subtitle">Call Center Audio Analytics Platform — 2025–26</p>
+                <h2 class="section-title">Murphy Data Platform</h2>
+                <p class="section-subtitle">End-to-end analytics infrastructure for a multi-tenant SaaS</p>
             </div>
         </div>
         <div class="content-grid full" style="margin-bottom:20px;">
             <div class="card accent">
                 <div class="card-header">
                     <div class="card-icon">🎯</div>
-                    <h3 class="card-title">Problem Statement</h3>
+                    <h3 class="card-title">Challenge</h3>
                 </div>
                 <div class="card-content">
-                    Companies rely heavily on phone calls to manage debt collection, payment follow-ups, and customer negotiations.
-                    Critical business intelligence is trapped in sensitive audio — because the data is personal, unstructured, and stored across multiple providers,
-                    companies focus on compliance rather than insight.
+                    Murphy serves 40+ debt collection companies, each requiring isolated analytics with different data schemas, SLAs, and compliance requirements. The platform needed a single pipeline that handles all clients while enforcing strict row-level security and delivering daily analytics to both internal dashboards and client-facing Power BI workspaces.
                 </div>
             </div>
         </div>
-        <div class="project-flow">
-            <div class="flow-step">
-                <div class="flow-connector"><div class="flow-dot"></div><div class="flow-line"></div></div>
-                <div class="flow-content">
-                    <div class="flow-label">Step 01</div>
-                    <div class="flow-title">Ingest & Classify</div>
-                    <div class="flow-desc">Multi-provider audio ingestion pipeline. Raw audio is cleaned, normalized, and clustered using acoustic features (MFCC) and metadata tagging for automatic categorization.</div>
+        <div class="arch-wrapper">
+            <div class="arch-row">
+                <div class="arch-block highlight">
+                    <div class="arch-label">Source</div>
+                    <div class="arch-title">Production Database</div>
+                    <div class="arch-desc">RDS Read Replica + Transaction Log Events via DMS Service → Amazon S3</div>
                 </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-connector"><div class="flow-dot"></div><div class="flow-line"></div></div>
-                <div class="flow-content">
-                    <div class="flow-label">Step 02</div>
-                    <div class="flow-title">Transcribe & Segment</div>
-                    <div class="flow-desc">Speaker diarization with timestamp segmentation. Structured conversation data stored in data lake with full-text indexing for downstream analytics.</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-block highlight">
+                    <div class="arch-label">Lake</div>
+                    <div class="arch-title">Delta Lake (Bronze → Silver)</div>
+                    <div class="arch-desc">dbt transformations: deduplication, SCD handling, point-in-time dimensions. Powered by Airflow.</div>
                 </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-connector"><div class="flow-dot"></div></div>
-                <div class="flow-content">
-                    <div class="flow-label">Step 03</div>
-                    <div class="flow-title">Review & Extract Insights</div>
-                    <div class="flow-desc">NLP analysis for intent detection, sensitive content flagging, risk scoring, and quality metrics. Results fed to real-time dashboards and automated alerting systems.</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-block highlight">
+                    <div class="arch-label">Warehouse</div>
+                    <div class="arch-title">Murphy Warehouse</div>
+                    <div class="arch-desc">Raw → Staging → Intermediate → Marts. All layers via dbt. Airflow orchestration.</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-block highlight">
+                    <div class="arch-label">Delivery</div>
+                    <div class="arch-title">Power BI + Frontoffice</div>
+                    <div class="arch-desc">BBVA Workspace shared to client via API. Row Level Security by company_code. Embedded reports.</div>
                 </div>
             </div>
         </div>
         <div class="slide-footer">
-            <span>Oriol Porta — KION Group Application</span>
-            <span class="page-number">05 / 08</span>
+            <span>Miguel Palos Pou — Senior Data Engineer</span>
+            <span class="page-number">03 / 07</span>
         </div>
     </div>
 
-    <!-- Slide 7: Project 2 Impact -->
-    <div class="slide" id="slide-6">
+    <!-- Slide 5: Project Impact -->
+    <div class="slide" id="slide-4">
         <div class="section-header">
             <div class="section-number">02</div>
             <div>
-                <h2 class="section-title">Project #2 — Impact</h2>
-                <p class="section-subtitle">Strategic outcomes of the audio analytics platform</p>
+                <h2 class="section-title">Platform Impact</h2>
+                <p class="section-subtitle">What the architecture enables</p>
             </div>
         </div>
         <div class="impact-grid">
             <div class="impact-item">
-                <div class="impact-title">Agent Performance & Quality Auditing</div>
-                <div class="impact-desc">Automated scoring of call quality, script adherence, and agent effectiveness — replacing slow, sampling-based manual review.</div>
+                <div class="impact-title">Multi-Tenant Analytics at Scale</div>
+                <div class="impact-desc">A single pipeline serves 40+ clients with full data isolation via row-level security — no duplicated infrastructure, no per-client engineering.</div>
             </div>
             <div class="impact-item">
-                <div class="impact-title">Product & Offer Effectiveness</div>
-                <div class="impact-desc">Structured conversation data enables A/B analysis of offers and scripts, directly linking language patterns to conversion outcomes.</div>
+                <div class="impact-title">Reliable Daily Data Delivery</div>
+                <div class="impact-desc">Airflow-orchestrated dbt build runs models and tests in dependency order — a failed test stops downstream models before bad data reaches dashboards.</div>
             </div>
             <div class="impact-item">
-                <div class="impact-title">Early Detection of Problematic Customers</div>
-                <div class="impact-desc">Risk signals extracted from audio allow proactive intervention before accounts escalate, improving collection rates.</div>
+                <div class="impact-title">Client-Facing Embedded BI</div>
+                <div class="impact-desc">Clients access their own Power BI workspace via API with live connections to a shared semantic model — reducing report maintenance from N copies to 1.</div>
             </div>
             <div class="impact-item">
-                <div class="impact-title">Knowledge Database</div>
-                <div class="impact-desc">Structured transcripts form a living knowledge base that trains new agents and feeds continuous model improvement.</div>
+                <div class="impact-title">Semantic Layer & MetricFlow</div>
+                <div class="impact-desc">Introduced MetricFlow server as a semantic layer, enabling consistent metric definitions across dashboards and AI tools without duplicating business logic.</div>
             </div>
         </div>
         <div class="slide-footer">
-            <span>Oriol Porta — KION Group Application</span>
-            <span class="page-number">06 / 08</span>
+            <span>Miguel Palos Pou — Senior Data Engineer</span>
+            <span class="page-number">04 / 07</span>
         </div>
     </div>
 
-    <!-- Slide 8: Skills -->
-    <div class="slide alt" id="slide-7">
+    <!-- Slide 6: Skills -->
+    <div class="slide alt" id="slide-5">
         <div class="section-header">
             <div class="section-number">03</div>
             <div>
-                <h2 class="section-title">Skills & Tools</h2>
-                <p class="section-subtitle">Technical capabilities for data science excellence</p>
+                <h2 class="section-title">Skills & Stack</h2>
+                <p class="section-subtitle">Production-tested tools across the data engineering lifecycle</p>
             </div>
         </div>
         <table class="skills-table">
             <thead>
                 <tr>
                     <th>Category</th>
-                    <th>Technologies & Skills</th>
+                    <th>Technologies</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Programming</td>
+                    <td>Languages</td>
                     <td>
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Scala</span>
                         <span class="skill-tag">Bash</span>
                     </td>
                 </tr>
                 <tr>
-                    <td>ML / AI</td>
+                    <td>Transformation</td>
                     <td>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Deep Learning</span>
-                        <span class="skill-tag">Generative AI</span>
-                        <span class="skill-tag">Agents & MCPs</span>
+                        <span class="skill-tag">dbt</span>
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Delta Lake</span>
                     </td>
                 </tr>
                 <tr>
-                    <td>Data Engineering</td>
+                    <td>Orchestration</td>
                     <td>
-                        <span class="skill-tag">Apache Spark</span>
-                        <span class="skill-tag">Apache Kafka</span>
-                        <span class="skill-tag">dbt</span>
-                        <span class="skill-tag">Airflow</span>
-                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Apache Airflow</span>
+                        <span class="skill-tag">GitHub Actions</span>
                     </td>
                 </tr>
                 <tr>
                     <td>Cloud & Storage</td>
                     <td>
-                        <span class="skill-tag">AWS (S3, Redshift, Glue)</span>
-                        <span class="skill-tag">GCP (BigQuery)</span>
-                        <span class="skill-tag">Snowflake</span>
-                        <span class="skill-tag">Delta Lake</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Databases</td>
-                    <td>
+                        <span class="skill-tag">AWS S3</span>
+                        <span class="skill-tag">Redshift</span>
+                        <span class="skill-tag">Athena</span>
+                        <span class="skill-tag">DMS</span>
                         <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Elasticsearch</span>
-                        <span class="skill-tag">Vector DBs</span>
                     </td>
                 </tr>
                 <tr>
-                    <td>Soft Skills</td>
+                    <td>Streaming</td>
                     <td>
-                        <span class="skill-tag">Problem Translation</span>
-                        <span class="skill-tag">Clear Communication</span>
-                        <span class="skill-tag">Ownership</span>
-                        <span class="skill-tag">Analytical Thinking</span>
-                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Apache Kafka</span>
+                        <span class="skill-tag">MSK</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Infrastructure</td>
+                    <td>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">ArgoCD</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Docker</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analytics & BI</td>
+                    <td>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">MetricFlow</span>
+                        <span class="skill-tag">Superset</span>
+                        <span class="skill-tag">Semantic Layer</span>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="slide-footer">
-            <span>Oriol Porta — KION Group Application</span>
-            <span class="page-number">07 / 08</span>
+            <span>Miguel Palos Pou — Senior Data Engineer</span>
+            <span class="page-number">05 / 07</span>
         </div>
     </div>
 
-    <!-- Slide 9: Why KION -->
-    <div class="slide" id="slide-8">
+    <!-- Slide 7: Education -->
+    <div class="slide" id="slide-6">
         <div class="section-header">
-            <div class="section-number">04</div>
+            <div class="section-number">01</div>
             <div>
-                <h2 class="section-title">Why KION</h2>
-                <p class="section-subtitle">Alignment with the role and the company</p>
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">Academic and professional training</p>
             </div>
         </div>
-        <div class="why-grid">
-            <div class="why-card">
-                <div class="why-number">01</div>
-                <h3 class="why-title">AI at Industrial Scale</h3>
-                <p class="why-desc">KION operates at the intersection of AI, automation, and large-scale industrial systems. That combination — where algorithmic decisions have real-world physical consequences — is exactly where I want to build.</p>
+        <div class="content-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎓</div>
+                    <h3 class="card-title">MSc Artificial Intelligence</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Universitat Politècnica de Catalunya (UPC)</li>
+                        <li>Machine learning, deep learning & optimization</li>
+                        <li>Research focus: scalable AI systems</li>
+                    </ul>
+                </div>
             </div>
-            <div class="why-card">
-                <div class="why-number">02</div>
-                <h3 class="why-title">Applied AI</h3>
-                <p class="why-desc">I'm especially interested in optimization, prediction, and decision-support systems — which are core to modern intralogistics. My background maps directly onto the challenges KION faces every day.</p>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Data Analytics Bootcamp</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Ironhack Barcelona</li>
+                        <li>Intensive hands-on data analytics training</li>
+                        <li>Statistics, Python, SQL, visualization</li>
+                    </ul>
+                </div>
             </div>
-            <div class="why-card">
-                <div class="why-number">03</div>
-                <h3 class="why-title">Impact-Driven Engineering</h3>
-                <p class="why-desc">This role combines technical depth with real business impact. I thrive at that intersection — where a better model means faster warehouses, lower costs, and more reliable supply chains.</p>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Analytics Engineering</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>3+ years production dbt experience</li>
+                        <li>dbt Certified Developer</li>
+                        <li>Data modelling best practices</li>
+                    </ul>
+                </div>
             </div>
-            <div class="why-card">
-                <div class="why-number">04</div>
-                <h3 class="why-title">Engineering Culture</h3>
-                <p class="why-desc">I value KION's engineering-driven culture and its emphasis on building robust, scalable solutions with long-term vision. A team that prioritizes quality and maintainability is where I do my best work.</p>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">☁️</div>
+                    <h3 class="card-title">Cloud & Architecture</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>AWS ecosystem (S3, Redshift, Athena, DMS, MSK)</li>
+                        <li>Kubernetes / ArgoCD / Terraform in production</li>
+                        <li>Data lakehouse & warehouse architecture</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="slide-footer">
-            <span>Oriol Porta — KION Group Application</span>
-            <span class="page-number">08 / 08</span>
+            <span>Miguel Palos Pou — Senior Data Engineer</span>
+            <span class="page-number">06 / 07</span>
         </div>
     </div>
 
-    <!-- Slide 10: Thanks -->
-    <div class="slide thanks-slide" id="slide-9">
-        <div class="kion-badge" style="border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.8);"><span style="background:#fff;"></span>KION Group — 2026</div>
-        <h1 class="thanks-title">Thanks!</h1>
-        <p class="thanks-sub">Looking forward to the conversation.</p>
+    <!-- Slide 8: Thanks -->
+    <div class="slide thanks-slide" id="slide-7">
+        <div class="badge" style="border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.75);"><span style="background:#fff;"></span>Senior Data Engineer</div>
+        <h1 class="thanks-title">Let's talk.</h1>
+        <p class="thanks-sub">Always interested in ambitious data challenges.</p>
         <div class="thanks-meta">
+            <div class="meta-item">🏢 <strong>Currently @ Murphy</strong></div>
             <div class="meta-item">📍 <strong>Barcelona, Spain</strong></div>
-            <div class="meta-item">🔗 <strong>linkedin.com/in/oriol-porta-tovar-321b41290</strong></div>
-            <div class="meta-item">📅 <strong>27 / 01 / 2026</strong></div>
+            <div class="meta-item">🎓 <strong>MSc AI — UPC</strong></div>
         </div>
     </div>
 
@@ -973,7 +905,6 @@
     const navDots = document.getElementById('navDots');
     let current = 0;
 
-    // Build nav dots
     slides.forEach((_, i) => {
         const dot = document.createElement('div');
         dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
