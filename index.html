@@ -286,48 +286,9 @@
             <div class="card-header"><div class="card-icon">🎯</div><h3 class="card-title">Challenge</h3></div>
             <div class="card-content">Murphy serves 40+ debt collection companies, each requiring isolated analytics with strict compliance and different schemas. A single pipeline must handle all clients, enforce row-level security, and deliver daily analytics to both internal dashboards and client-facing Power BI workspaces.</div>
         </div>
-        <!-- Architecture diagram -->
-        <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
-            <div style="display:flex; align-items:center; gap:8px;">
-                <!-- PROD DB -->
-                <div style="background:#fff; border:1px solid var(--border); border-top:3px solid #4A90D9; border-radius:4px; padding:14px 16px; min-width:140px;">
-                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#4A90D9; margin-bottom:6px;">Source</div>
-                    <div style="font-size:0.85rem; font-weight:600; margin-bottom:4px;">Prod Database</div>
-                    <div style="font-size:0.75rem; color:var(--text-muted);">RDS Replica + DMS<br>→ Amazon S3</div>
-                </div>
-                <div style="color:var(--border-strong); font-size:1.2rem; flex-shrink:0;">→</div>
-                <!-- Delta Lake -->
-                <div style="background:#fff; border:1px solid var(--border); border-top:3px solid #f5a623; border-radius:4px; padding:14px 16px; min-width:140px;">
-                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#f5a623; margin-bottom:6px;">Lake</div>
-                    <div style="font-size:0.85rem; font-weight:600; margin-bottom:4px;">Delta Lake</div>
-                    <div style="font-size:0.75rem; color:var(--text-muted);">Bronze → Silver<br>dbt + Airflow</div>
-                </div>
-                <div style="color:var(--border-strong); font-size:1.2rem; flex-shrink:0;">→</div>
-                <!-- Warehouse -->
-                <div style="background:#fff; border:1px solid var(--border); border-top:3px solid var(--red); border-radius:4px; padding:14px 16px; flex:1;">
-                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:6px;">Warehouse · Redshift</div>
-                    <div style="display:flex; gap:8px; align-items:center;">
-                        <div style="font-size:0.78rem; text-align:center; padding:8px; background:var(--bg-light); border-radius:3px; flex:1;"><div style="color:var(--text-muted); font-size:0.68rem; margin-bottom:3px;">Raw</div>Copy of Athena tables</div>
-                        <div style="color:var(--border-strong);">→</div>
-                        <div style="font-size:0.78rem; text-align:center; padding:8px; background:var(--bg-light); border-radius:3px; flex:1;"><div style="color:var(--text-muted); font-size:0.68rem; margin-bottom:3px;">Staging</div>Renamed & standardized</div>
-                        <div style="color:var(--border-strong);">→</div>
-                        <div style="font-size:0.78rem; text-align:center; padding:8px; background:var(--bg-light); border-radius:3px; flex:1;"><div style="color:var(--text-muted); font-size:0.68rem; margin-bottom:3px;">Intermediate</div>Enriched & transformed</div>
-                        <div style="color:var(--border-strong);">→</div>
-                        <div style="font-size:0.78rem; text-align:center; padding:8px; background:rgba(119,30,84,0.07); border:1px solid rgba(119,30,84,0.2); border-radius:3px; flex:1;"><div style="color:var(--red); font-size:0.68rem; margin-bottom:3px;">Marts</div>Final analytics tables</div>
-                    </div>
-                </div>
-                <div style="color:var(--border-strong); font-size:1.2rem; flex-shrink:0;">→</div>
-                <!-- Delivery -->
-                <div style="background:#fff; border:1px solid var(--border); border-top:3px solid #34a853; border-radius:4px; padding:14px 16px; min-width:150px;">
-                    <div style="font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#34a853; margin-bottom:6px;">Delivery</div>
-                    <div style="font-size:0.85rem; font-weight:600; margin-bottom:4px;">Power BI + Frontoffice</div>
-                    <div style="font-size:0.75rem; color:var(--text-muted);">BBVA Workspace via API<br>Row Level Security</div>
-                </div>
-            </div>
-            <div style="display:flex; justify-content:center; gap:8px; margin-top:4px;">
-                <div style="background:rgba(119,30,84,0.06); border:1px dashed rgba(119,30,84,0.2); border-radius:4px; padding:10px 20px; font-size:0.78rem; color:var(--text-muted);">🔄 Orchestrated by <strong style="color:var(--text-primary);">Apache Airflow</strong> — dbt build runs models + tests in dependency order</div>
-                <div style="background:rgba(119,30,84,0.06); border:1px dashed rgba(119,30,84,0.2); border-radius:4px; padding:10px 20px; font-size:0.78rem; color:var(--text-muted);">🔒 <strong style="color:var(--text-primary);">Row-level security</strong> by company_code — 40+ tenants, single pipeline</div>
-            </div>
+        <!-- Architecture diagram - high quality image -->
+        <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+            <img src="murphy-architecture.png" alt="Murphy Data Platform Architecture" style="max-width:100%; max-height:55vh; object-fit:contain; border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.08);">
         </div>
         <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">03 / 11</span></div>
     </div>
