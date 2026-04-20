@@ -117,6 +117,17 @@
         .qa-box-desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px; line-height: 1.4; }
         .qa-arrow { color: var(--border-strong); font-size: 1rem; flex-shrink: 0; }
 
+        /* Project flow (like Oriol's 3-step flow) */
+        .project-flow { display: flex; flex-direction: column; gap: 0; flex: 1; }
+        .flow-step { display: flex; align-items: stretch; gap: 20px; }
+        .flow-connector { display: flex; flex-direction: column; align-items: center; width: 24px; flex-shrink: 0; }
+        .flow-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--red); border: 3px solid rgba(119,30,84,0.2); flex-shrink: 0; }
+        .flow-line { width: 2px; flex: 1; background: rgba(119,30,84,0.2); margin-top: 4px; }
+        .flow-content { flex: 1; padding-bottom: 32px; }
+        .flow-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+        .flow-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+        .flow-desc { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; }
+
         /* Tests table */
         .tests-table { width: 100%; border-collapse: collapse; flex: 1; font-size: 0.82rem; }
         .tests-table th { text-align: left; padding: 10px 14px; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); border-bottom: 2px solid var(--border-strong); background: var(--bg-light); }
@@ -449,69 +460,40 @@
         <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">06 / 11</span></div>
     </div>
 
-    <!-- 7: Project 2 — Test Suite -->
+    <!-- 7: Project 2 — Solution Flow -->
     <div class="slide alt" id="slide-7">
         <div class="section-header">
             <div class="section-number">02</div>
             <div>
-                <h2 class="section-title">Project 2 — Test Suite</h2>
-                <p class="section-subtitle">8 automated evaluations per call · configurable per company via Airflow Variables</p>
+                <h2 class="section-title">Project 2 — Solution</h2>
+                <p class="section-subtitle">Automated compliance evaluation at scale</p>
             </div>
         </div>
-        <table class="tests-table">
-            <thead>
-                <tr>
-                    <th>Test</th>
-                    <th>Type</th>
-                    <th>What it checks</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>pre_verification_debt_disclosure</td>
-                    <td><span class="test-type llm">LLM</span></td>
-                    <td>Agent must NOT mention debt before verifying identity</td>
-                </tr>
-                <tr>
-                    <td>correct_amount_disclosure</td>
-                    <td><span class="test-type hybrid">LLM + Prog</span></td>
-                    <td>Agent states correct total debt — LLM extracts amount, compared vs contracts DB (±€0.70)</td>
-                </tr>
-                <tr>
-                    <td>identity_verification_format</td>
-                    <td><span class="test-type llm">LLM</span></td>
-                    <td>Agent asks for ID in the correct format (3 digits, letter, CIF, etc.)</td>
-                </tr>
-                <tr>
-                    <td>identity_verification_correctness</td>
-                    <td><span class="test-type hybrid">LLM + Prog</span></td>
-                    <td>Person provided the correct ID value — LLM extracts, compared vs national_id in DB</td>
-                </tr>
-                <tr>
-                    <td>identity_verification_capture_difficulty</td>
-                    <td><span class="test-type llm">LLM</span></td>
-                    <td>Agent struggled to capture ID despite person cooperating (re-asks 2+, comprehension failure)</td>
-                </tr>
-                <tr>
-                    <td>speaking_time_ratio</td>
-                    <td><span class="test-type prog">Programmatic</span></td>
-                    <td>Agent speaking ≥35% of time — flags if person speaks &gt;65% (agent barely engaging)</td>
-                </tr>
-                <tr>
-                    <td>sub_scenario_association_debt</td>
-                    <td><span class="test-type llm">LLM</span></td>
-                    <td>Deep-dive when call stalled on debt (dispute, ignore, negotiate) — conditional on classifier</td>
-                </tr>
-                <tr>
-                    <td>sub_scenario_association_verification</td>
-                    <td><span class="test-type llm">LLM</span></td>
-                    <td>Deep-dive when call stalled at identity verification — conditional on classifier</td>
-                </tr>
-            </tbody>
-        </table>
-        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <div style="font-size:0.78rem; color:var(--text-muted); background:var(--bg-card); border:1px solid var(--border); border-radius:4px; padding:8px 14px;">🔀 Prompt resolution: <strong>company-specific → generic</strong> — override any test for any client without touching defaults</div>
-            <div style="font-size:0.78rem; color:var(--text-muted); background:var(--bg-card); border:1px solid var(--border); border-radius:4px; padding:8px 14px;">🗂 Prompts versioned in <strong>Langfuse</strong> · results stored in <strong>Redshift qa_automation.test_results</strong></div>
+        <div class="project-flow">
+            <div class="flow-step">
+                <div class="flow-connector"><div class="flow-dot"></div><div class="flow-line"></div></div>
+                <div class="flow-content">
+                    <div class="flow-label">Step 01</div>
+                    <div class="flow-title">Ingest & Resolve</div>
+                    <div class="flow-desc">Airflow DAG fetches completed calls every 30 minutes. For each call, resolves the company and which tests to run — configurable per client via Airflow Variables.</div>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-connector"><div class="flow-dot"></div><div class="flow-line"></div></div>
+                <div class="flow-content">
+                    <div class="flow-label">Step 02</div>
+                    <div class="flow-title">Evaluate with LLM + Programmatic Checks</div>
+                    <div class="flow-desc">Transcripts are sent to GPT with versioned prompts from Langfuse. Hybrid checks compare LLM-extracted values (amounts, IDs) against ground truth in the database.</div>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-connector"><div class="flow-dot"></div></div>
+                <div class="flow-content">
+                    <div class="flow-label">Step 03</div>
+                    <div class="flow-title">Alert & Store Results</div>
+                    <div class="flow-desc">All results land in Redshift with full reasoning. Calls flagged as <strong style="color:var(--red);">under_revision</strong> trigger Slack alerts with a direct link to the call for human review.</div>
+                </div>
+            </div>
         </div>
         <div class="slide-footer"><span>Miguel Palos Pou — Senior Data Engineer</span><span class="page-number">07 / 11</span></div>
     </div>
